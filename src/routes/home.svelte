@@ -2,6 +2,7 @@
   import { Canvas } from "@threlte/core";
   import HomeScene from "../scenes/homeScene.svelte";
   import ExperienceList from "../components/experienceList.svelte";
+  import PresentationSection from "../components/presentationSection.svelte";
 </script>
 
 <main>
@@ -11,10 +12,9 @@
     </Canvas>
   </div>
   <div class="content">
-    <h1>Hi my name is Alejandro Lopez</h1>
-    <h2>I'm a software engineer with a passion for system design from Venezuela</h2>
-  </div>
+    <PresentationSection />
     <ExperienceList />
+  </div>
 </main>
 
 <style>

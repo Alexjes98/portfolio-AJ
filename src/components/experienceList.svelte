@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // @ts-nocheck
   import FaDatabase from "svelte-icons/fa/FaDatabase.svelte";
   import FaMobileAlt from "svelte-icons/fa/FaMobileAlt.svelte";
@@ -7,7 +7,7 @@
 </script>
 
 <div class="experience-container">
-  <h2>Experience</h2>
+  <h2>What I Do</h2>
   <div class="experience-list">
     <div class="experience-item">
       <div class="icon">
@@ -15,7 +15,7 @@
       </div>
       <h3>Back-End Development</h3>
       <p>
-        I have worked with Node.js, Express.js, JWT, ORMs like Sequelize and
+        I have experience with Node.js, Express.js, JWT, ORMs like Sequelize and
         using dependency injection, and design patterns to create secure APIs
         for robust web applications with database services like MongoDB, MySQL, and
         Postgres

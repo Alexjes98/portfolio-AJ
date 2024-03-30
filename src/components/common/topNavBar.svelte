@@ -8,7 +8,7 @@
 
 <style>
   .top-nav-bar {
-    background-color: #333;
+    background-color: var(--secondary-color);
     overflow: hidden;
     position: fixed;
     top: 0;

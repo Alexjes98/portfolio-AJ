@@ -11,12 +11,19 @@
   --main-color: #31363F;
   --secondary-color: #222831;
   --accent-color: #76ABAE;
+  --accent-color-light: #A3D2CA;
+  --accent-color-dark: #4A6C6F;
   --background-color: #EEEEEE;
+  --black: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
 }
 
 h1 {
