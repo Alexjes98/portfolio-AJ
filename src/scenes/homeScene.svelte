@@ -1,7 +1,6 @@
 <script>
   import { T, useTask } from "@threlte/core";
   import { AmbientLight, GridHelper } from "three";
-  import { FlyControls, MapControls } from "three/examples/jsm/Addons.js";
   import { OrbitControls } from '@threlte/extras'
   let rotation = 0;
   useTask((delta) => {
@@ -30,7 +29,7 @@
 position.y={1}
 rotation.y={rotation}>
   <T.BoxGeometry args={[2, 2, 1]} />
-  <T.MeshBasicMaterial color="white" />
+  <T.MeshBasicMaterial color="black" />
 </T.Mesh>
 
 <!-- Home Page

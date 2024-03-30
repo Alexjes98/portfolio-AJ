@@ -1,6 +1,6 @@
 <script>
 </script>
 
-<main style="margin: 20px;">
+<main>
   <slot />
 </main>
