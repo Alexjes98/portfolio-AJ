@@ -1,23 +1,38 @@
 <script lang="ts">
   import Img from "../assets/img.jpg";
+
+  function scrollToSection() {
+    // TODO: implement smoother scroll
+    const section = document.getElementById("what-i-do");
+    if (section) {
+      section.scrollIntoView();
+    }
+  }
 </script>
 
 <main>
-  <div class="row">
-    <div class="col">
-      <h1>Hi my name is Alejandro Lopez</h1>
-      <h2>
-        I'm a software engineer with a passion for system design from Venezuela
-      </h2>
-      <div class="button-container">
-        <button>Start</button>
+  <section id="presentation">
+    <div class="row">
+      <div class="col">
+        <h1>Hi my name is Alejandro Lopez</h1>
+        <h2>
+          I'm a software engineer with a passion for system design from
+          Venezuela
+        </h2>
+        <div class="button-container">
+          <button on:click={scrollToSection}>Start</button>
+        </div>
       </div>
+      <img src={Img} alt="Alejandro Lopez" />
     </div>
-    <img src={Img} alt="Alejandro Lopez" />
-  </div>
+  </section>
 </main>
 
 <style>
+
+  section {
+    margin-bottom: 500px;
+  }
   img {
     width: 20%;
     height: auto;
