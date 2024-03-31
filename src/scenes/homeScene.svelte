@@ -61,9 +61,9 @@
 </T.Mesh>
 
 <!-- Home Page
-A brief introduction about yourself
+ //A brief introduction about yourself
 A headshot or logo
-A tagline that summarizes your expertise
+//A tagline that summarizes your expertise
 About Page
 Your professional background
 Your skills and areas of expertise

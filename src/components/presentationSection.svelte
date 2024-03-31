@@ -16,8 +16,7 @@
       <div class="col">
         <h1>Hi my name is Alejandro Lopez</h1>
         <h2>
-          I'm a software engineer with a passion for system design from
-          Venezuela
+          I'm a software engineer with a passion for system design
         </h2>
         <div class="button-container">
           <button on:click={scrollToSection}>Start</button>
@@ -31,7 +30,7 @@
 <style>
 
   section {
-    margin-bottom: 500px;
+    margin-bottom: 400px;
   }
   img {
     width: 20%;

@@ -3,6 +3,7 @@
   import HomeScene from "../scenes/homeScene.svelte";
   import ExperienceList from "../components/experienceList.svelte";
   import PresentationSection from "../components/presentationSection.svelte";
+  import AboutMe from "../components/aboutMe.svelte";
 </script>
 
 <main>
@@ -14,6 +15,7 @@
   <div class="content">
     <PresentationSection />
     <ExperienceList />
+    <AboutMe />
   </div>
 </main>
 

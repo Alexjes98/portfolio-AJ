@@ -37,16 +37,14 @@
         </div>
         <div class="experience-item">
           <div class="icon">
-            <div class="icon">
-              <FaCloud />
-            </div>
+            <FaCloud />
           </div>
           <h3>Cloud Development</h3>
-
           <p>
             I have experience with AWS services like EC2, S3, RDS, Lambda,
-            ElasticBeanstalk, Amplify, Cognito and Azure services like Blob Storage, Cosmos DB, Functions, and I have used them to
-            deploy and scale web applications
+            ElasticBeanstalk, Amplify, Cognito and Azure services like Blob
+            Storage, Cosmos DB, Functions, and I have used them to deploy and
+            scale web applications
           </p>
         </div>
         <div class="experience-item">
@@ -67,6 +65,9 @@
 </main>
 
 <style>
+  section {
+    margin-bottom: 100px;
+  }
   p {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
@@ -95,7 +96,7 @@
 
   .experience-list {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
