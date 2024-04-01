@@ -4,6 +4,7 @@
   import ExperienceList from "../components/experienceList.svelte";
   import PresentationSection from "../components/presentationSection.svelte";
   import AboutMe from "../components/aboutMe.svelte";
+  import JourneyResume from "../components/journeyResume.svelte";
 </script>
 
 <main>
@@ -16,6 +17,7 @@
     <PresentationSection />
     <ExperienceList />
     <AboutMe />
+    <JourneyResume />
   </div>
 </main>
 

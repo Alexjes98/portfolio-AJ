@@ -66,7 +66,7 @@
 
 <style>
   section {
-    margin-bottom: 100px;
+    margin-bottom: 200px;
   }
   p {
     font-family: "Courier New", Courier, monospace;

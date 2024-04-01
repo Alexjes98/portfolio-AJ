@@ -57,6 +57,9 @@
 </main>
 
 <style>
+  section{
+    margin-bottom: 300px;
+  }
   .decoration-icon {
     position: absolute;
     z-index: 0;
@@ -70,7 +73,7 @@
   .decoration-div {
     position: absolute;
     z-index: 2;
-    width: 110%;
+    width: 10%;
     bottom: 0;
     left: -10px;
     height: 33px;
