@@ -32,17 +32,17 @@
           </h4>
           <div class="icons-row">
             <div class="icon">
-              <a href="https://github.com/Alexjes98">
+              <a href="https://github.com/Alexjes98" target="_blank">
                 <DiGithubBadge />
               </a>
             </div>
             <div class="icon">
-              <a href="https://www.linkedin.com/in/alejandro-lopez-9b3462179/">
+              <a href="https://www.linkedin.com/in/alejandro-lopez-9b3462179/" target="_blank">
                 <FaLinkedin />
               </a>
             </div>
             <div class="icon">
-              <a href="https://www.instagram.com/alexandre_dupre98/">
+              <a href="https://www.instagram.com/alexandre_dupre98/" target="_blank">
                 <FaInstagram />
               </a>
             </div>

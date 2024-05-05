@@ -30,7 +30,7 @@
 <style>
 
   section {
-    margin-bottom: 400px;
+    margin-bottom: 700px;
   }
   img {
     width: 20%;

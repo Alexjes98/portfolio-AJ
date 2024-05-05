@@ -25,6 +25,7 @@
     "@threlte/extras": "^8.11.1",
     "@threlte/theatre": "^2.1.7",
     "@types/three": "^0.163.0",
+    "mathjs": "^12.4.1",
     "svelte-icons": "^2.1.0",
     "svelte-navigator": "^3.2.2",
     "three": "^0.163.0"

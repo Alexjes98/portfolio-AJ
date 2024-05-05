@@ -2,42 +2,38 @@
   import { T, useTask } from "@threlte/core";
   import { AmbientLight, GridHelper } from "three";
   import { OrbitControls } from "@threlte/extras";
-
-
+  import { onMount } from "svelte";
 
   let rotation = 0;
   useTask((delta) => {
     rotation += delta;
-    console.log(rotation);
   });
 
-  
+  useTask((delta) => {});
+
+  let cameraPosition = [2, 2, 7];
+  // @ts-ignore
   useTask((delta) => {
-    for (let i = 0; i < fallingCubes.length; i++) {
-      fallingCubes[i].position[1] -= delta;
-      if (fallingCubes[i].position[1] < 0) {
-        fallingCubes[i].position[1] = fallingCubes[i].initialHeight;
-      }
+    console.log(scrollY);
+    if (scrollY < 1200) {
+      cameraPosition[0] = 20 + scrollY / 100;
+      cameraPosition[1] = scrollY / 100;
+      cameraPosition[2] = scrollY / 100;
+    } else {
+      cameraPosition[0] = scrollY / 100;
+      cameraPosition[1] = scrollY / 100;
+      cameraPosition[2] = scrollY / 100;
     }
-    
   });
-  const fallingCubes = [
-    { args: [1,0.5,0.5], position: [-0.4, 5 , 5], rotation: [0, 0.1, 0], initialHeight: 5 }, // cube 0
-    { args: [1,0.5,0.5], position: [0.3, 2, 5], rotation: [0, 0.1, 0], initialHeight: 7 }, // cube 1
-    { args: [1,0.5,0.5], position: [1, 6, 5], rotation: [0, 0.1, 0], initialHeight: 6 }, // cube 2
-    { args: [1,0.5,0.5], position: [1.7, 6.5, 5], rotation: [0, 0.1, 0], initialHeight: 6.5 }, // cube 3
-    { args: [1,0.5,0.5], position: [2.4, 4.6, 5], rotation: [0, 0.1, 0], initialHeight: 4.6 }, // cube 4
-    { args: [1,0.5,0.5], position: [3.1, 4.5, 5], rotation: [0, 0.1, 0], initialHeight: 4.5 }, // cube 5
-    { args: [1,0.5,0.5], position: [3.8, 4.9, 5], rotation: [0, 0.1, 0], initialHeight: 4.9 }, // cube 6
-    { args: [1,0.5,0.5], position: [4.5, 5.9, 5], rotation: [0, 0.1, 0], initialHeight: 5.9 }, // cube 7
-    { args: [1,0.5,0.5], position: [5.2, 6.2, 5], rotation: [0, 0.1, 0], initialHeight: 6.2 }, // cube 8
-    { args: [1,0.5,0.5], position: [5.9, 5.4, 5], rotation: [0, 0.1, 0], initialHeight: 5.4 }, // cube 9
-  ];
+
+  let scrollY = 0;
 </script>
+
+<svelte:window bind:scrollY />
 
 <T.PerspectiveCamera
   makeDefault
-  position={[2, 3, 7]}
+  position={cameraPosition}
   on:create={({ ref }) => {
     ref.lookAt(0, 0, 0);
   }}
@@ -48,15 +44,9 @@
 <T.DirectionalLight position={[0, 10, 0]} intensity={1} />
 
 <T.GridHelper args={[100, 100]} />
-{#each fallingCubes as cube}
-  <T.Mesh position={[cube.position[0],cube.position[1],cube.position[2]]} rotation={cube.rotation}>
-    <T.BoxGeometry args={cube.args} />
-    <T.MeshBasicMaterial color="#222831" />
-  </T.Mesh>
-{/each}
 
-<T.Mesh position.y={1} rotation.y={rotation}>
-  <T.BoxGeometry args={[1, 1, 1]} />
+<T.Mesh position={[20, 8, 6]} rotation.y={rotation}>
+  <T.BoxGeometry args={[7, 7, 7]} />
   <T.MeshBasicMaterial color="black" />
 </T.Mesh>
 

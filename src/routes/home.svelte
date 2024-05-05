@@ -5,6 +5,7 @@
   import PresentationSection from "../components/presentationSection.svelte";
   import AboutMe from "../components/aboutMe.svelte";
   import JourneyResume from "../components/journeyResume.svelte";
+  import SkillsList from "../components/skillsList.svelte";
 </script>
 
 <main>
@@ -18,6 +19,7 @@
     <ExperienceList />
     <AboutMe />
     <JourneyResume />
+    <SkillsList />
   </div>
 </main>
 
@@ -30,7 +32,7 @@
   }
 
   .content {
-    margin-top: 80px;
+    margin-top: 20px;
     z-index: 1;
   }
 </style>

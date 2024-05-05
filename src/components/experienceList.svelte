@@ -82,12 +82,13 @@
     font-weight: bold;
     text-align: center;
     background-color: rgba(49, 54, 63, 0.5);
+    
   }
   .icon {
     width: 100%;
     height: 54px;
     color: white;
-    margin-bottom: 70px;
+    margin-bottom: 10px;
   }
   .experience-container {
     margin-top: 80px;
@@ -107,6 +108,7 @@
     padding: 20px;
     border: 5px solid #ccc;
     border-radius: 15px;
-    width: 300px;
+    width: 350px;
+    margin-right: 20px;
   }
 </style>

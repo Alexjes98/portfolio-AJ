@@ -31,38 +31,40 @@
 </script>
 
 <main>
-  <div class="journey-container">
-    <div class="row">
-      <div class="col">
-        <h3>Education</h3>
-        <div class="line-left" />
-        <div class="circle-left" />
-        <div class="circle-down-left" />
-        {#each education as item}
-          <div class="experience-item">
-            <p>{item.date}</p>
-            <h5>{item.location}</h5>
-            <h3>{item.title}</h3>
-            <h4>{item.institution}</h4>
-          </div>
-        {/each}
-      </div>
-      <div class="col">
-        <h3>Experience</h3>
-        <div class="line-right" />
-        <div class="circle-right" />
-        <div class="circle-down-right" />
-        {#each experience as item}
-          <div class="experience-item">
-            <p>{item.date}</p>
-            <h5>{item.location}</h5>
-            <h3>{item.title}</h3>
-            <h4>{item.institution}</h4>
-          </div>
-        {/each}
+  <section>
+    <div class="journey-container">
+      <div class="row">
+        <div class="col">
+          <h3>Education</h3>
+          <div class="line-left" />
+          <div class="circle-left" />
+          <div class="circle-down-left" />
+          {#each education as item}
+            <div class="experience-item">
+              <p>{item.date}</p>
+              <h5>{item.location}</h5>
+              <h3>{item.title}</h3>
+              <h4>{item.institution}</h4>
+            </div>
+          {/each}
+        </div>
+        <div class="col">
+          <h3>Experience</h3>
+          <div class="line-right" />
+          <div class="circle-right" />
+          <div class="circle-down-right" />
+          {#each experience as item}
+            <div class="experience-item">
+              <p>{item.date}</p>
+              <h5>{item.location}</h5>
+              <h3>{item.title}</h3>
+              <h4>{item.institution}</h4>
+            </div>
+          {/each}
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </main>
 
 <style>
@@ -147,6 +149,9 @@
     margin-inline: 20px;
     padding: 20px;
     position: relative;
+  }
+  section {
+    margin-bottom: 500px;
   }
 
   h3 {
