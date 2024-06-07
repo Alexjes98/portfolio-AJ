@@ -1,8 +1,10 @@
 <script>
+
   import { T, useTask } from "@threlte/core";
-  import { AmbientLight, GridHelper } from "three";
+  import { AmbientLight, GridHelper, Vector3 } from "three";
   import { OrbitControls } from "@threlte/extras";
   import { onMount } from "svelte";
+  
 
   let rotation = 0;
   useTask((delta) => {
@@ -11,22 +13,25 @@
 
   useTask((delta) => {});
 
-  let cameraPosition = [2, 2, 7];
-  // @ts-ignore
-  useTask((delta) => {
-    console.log(scrollY);
-    if (scrollY < 1200) {
-      cameraPosition[0] = 20 + scrollY / 100;
-      cameraPosition[1] = scrollY / 100;
-      cameraPosition[2] = scrollY / 100;
-    } else {
-      cameraPosition[0] = scrollY / 100;
-      cameraPosition[1] = scrollY / 100;
-      cameraPosition[2] = scrollY / 100;
-    }
-  });
+  let cameraPosition = [0, 0, 0];
 
   let scrollY = 0;
+  
+  $: {
+    if (scrollY < 2000) {
+      cameraPosition = cameraPosition.map((v, i) => {
+        return scrollY / 100;
+      });
+    } else if (scrollY < 3000) {
+      cameraPosition = [(0 + scrollY/100), 0, 0];      
+    }
+    else if (scrollY < 4000) {
+      cameraPosition = [0, (0 + scrollY/100), 0];      
+    }
+  }
+
+  $: console.log(scrollY);
+  $: console.log(cameraPosition);
 </script>
 
 <svelte:window bind:scrollY />
@@ -43,10 +48,35 @@
 <T.AmbientLight intensity={0.5} />
 <T.DirectionalLight position={[0, 10, 0]} intensity={1} />
 
-<T.GridHelper args={[100, 100]} />
+<!-- <T.GridHelper args={[100, 100]} /> -->
 
 <T.Mesh position={[20, 8, 6]} rotation.y={rotation}>
-  <T.BoxGeometry args={[7, 7, 7]} />
+  <T.BoxGeometry args={[0, 7, 0]} />
+  <T.MeshBasicMaterial color="black" />
+</T.Mesh>
+
+<T.Mesh position={[-1, 0, -1]}>
+  <T.BoxGeometry args={[1, 1, 1]} />
+  <T.MeshBasicMaterial color="black" />
+</T.Mesh>
+
+<T.Mesh position={[0, 0, -2]} >
+  <T.BoxGeometry args={[1, 1, 1]}/>
+  <T.MeshBasicMaterial color="black" />
+</T.Mesh>
+
+<T.Mesh position={[1, 0, -2]}>
+  <T.BoxGeometry args={[1, 1, 1]} />
+  <T.MeshBasicMaterial color="black" />
+</T.Mesh>
+
+<T.Mesh position={[8, 6, 3]}>
+  <T.BoxGeometry args={[2, 2, 2]} />
+  <T.MeshBasicMaterial color="black" />
+</T.Mesh>
+
+<T.Mesh position={[2, 6, 7]} rotation.y={rotation}>
+  <T.CylinderGeometry args={[3, 3, 6, 6]} />
   <T.MeshBasicMaterial color="black" />
 </T.Mesh>
 

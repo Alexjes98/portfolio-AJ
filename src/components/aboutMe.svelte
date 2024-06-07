@@ -157,6 +157,8 @@
   .about-container {
     position: relative;
     padding-inline: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     margin-top: 80px;
     width: 100%;
     background-color: var(--secondary-color);
