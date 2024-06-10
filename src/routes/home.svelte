@@ -1,11 +1,16 @@
 <script lang="ts">
   import { Canvas } from "@threlte/core";
+  import { Environment } from '@threlte/extras'
+
   import HomeScene from "../scenes/homeScene.svelte";
   import ExperienceList from "../components/experienceList.svelte";
   import PresentationSection from "../components/presentationSection.svelte";
   import AboutMe from "../components/aboutMe.svelte";
   import JourneyResume from "../components/journeyResume.svelte";
   import SkillsList from "../components/skillsList.svelte";
+
+
+  
 </script>
 
 <main>

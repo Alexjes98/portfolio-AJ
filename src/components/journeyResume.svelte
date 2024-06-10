@@ -33,12 +33,13 @@
 <main>
   <section>
     <div class="journey-container">
-      <div class="row">
         <div class="col">
-          <h3>Education</h3>
-          <div class="line-left" />
-          <div class="circle-left" />
-          <div class="circle-down-left" />
+          <div>
+            <h2>Education</h2>
+          </div>
+          <div />
+          <div />
+          <div />
           {#each education as item}
             <div class="experience-item">
               <p>{item.date}</p>
@@ -47,12 +48,9 @@
               <h4>{item.institution}</h4>
             </div>
           {/each}
-        </div>
-        <div class="col">
-          <h3>Experience</h3>
-          <div class="line-right" />
-          <div class="circle-right" />
-          <div class="circle-down-right" />
+          <div>
+            <h2>Experience</h2>
+          </div>
           {#each experience as item}
             <div class="experience-item">
               <p>{item.date}</p>
@@ -63,92 +61,29 @@
           {/each}
         </div>
       </div>
-    </div>
   </section>
 </main>
 
 <style>
-  .line-right {
-    position: absolute;
-    width: 5px;
-    height: 550px;
-    left: 0%;
-    top: 15%;
-    background-color: var(--main-color);
-  }
-  .line-left {
-    position: absolute;
-    width: 5px;
-    height: 550px;
-    left: 0%;
-    top: 15%;
-    background-color: var(--main-color);
-  }
-  .circle-right {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: -1.3%;
-    top: 13%;
-    border-radius: 50%;
-    background-color: var(--main-color);
-  }
-  .circle-down-right {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: -1.3%;
-    top: 53%;
-    border-radius: 50%;
-    background-color: var(--main-color);
-  }
-  .circle-left {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: -1.3%;
-    top: 13%;
-    border-radius: 50%;
-    background-color: var(--main-color);
-  }
-  .circle-down-left {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: -1.3%;
-    top: 53%;
-    border-radius: 50%;
-    background-color: var(--main-color);
-  }
   .experience-item {
-    border-radius: 25px;
-    background-color: var(--accent-color-light);
+    background-color: var(--main-color);
     padding: 20px;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
+  
   .journey-container {
-    position: relative;
-    padding-inline: 20px;
+    position: relative;    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 80px;
     width: 100%;
-    background-color: var(--background-color);
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex: 2;
   }
   .col {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    flex: 2;
-    margin-inline: 20px;
-    padding: 20px;
-    position: relative;
+    justify-content: center;
+    align-items: start;    
   }
   section {
     margin-bottom: 500px;
@@ -157,7 +92,13 @@
   h3 {
     font-weight: bold;
     text-align: start;
+    color: white;
+    margin-bottom: 5px;
+  }
+  h2{
+    font-weight: bold;
+    text-align: center;
     color: var(--main-color);
-    margin-bottom: 30px;
+    margin-bottom: 5px;
   }
 </style>
