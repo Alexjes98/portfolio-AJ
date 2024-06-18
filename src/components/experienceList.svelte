@@ -78,11 +78,11 @@
     text-align: center;
   }
   h2 {
+    width: 100%;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     text-align: center;
     background-color: rgba(49, 54, 63, 0.5);
-    
   }
   .icon {
     width: 100%;

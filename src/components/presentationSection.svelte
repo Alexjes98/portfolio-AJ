@@ -15,64 +15,101 @@
     <div class="row">
       <div class="col">
         <h1>Hi my name is Alejandro Lopez</h1>
-        <h2>
-          I'm a software engineer with a passion for system design
-        </h2>
+        <h2>I'm a software engineer with a passion for system design</h2>
         <div class="button-container">
           <button on:click={scrollToSection}>Start</button>
         </div>
       </div>
-      <img src={Img} alt="Alejandro Lopez" />
+      <div class="pic-container">
+        <img class="pic" src={Img} alt="Alejandro Lopez" />
+      </div>
     </div>
   </section>
 </main>
 
 <style>
+  @media only screen and (max-width: 400px) {
+    section {
+      margin-bottom: 700px;
+      padding: 20px;
+      justify-content: end;
+      align-items: center;
+    }
 
-  section {
-    margin-bottom: 700px;
-  }
-  img {
-    width: 20%;
-    height: auto;
-    padding: 20px;
-  }
+    .pic {
+      width: 80%;
+      height: auto;
+    }
 
-  button {
-    width: 250px;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 50px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    .pic-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
 
-  button:hover {
-    background-color: var(--accent-color-dark);
+    button {
+      width: 100%;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 10px 20px;
+      margin-bottom: 50px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    section {
+      margin-bottom: 700px;
+    }
+    .pic-container {
+      display: flex;
+      justify-content: center;
+    }
+    .pic {
+      width: 50%;
+      height: auto;
+      padding: 20px;
+    }
 
-  .button-container {
-    display: flex;
-    padding-top: 20px;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-  }
+    button {
+      width: 250px;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 10px 20px;
+      margin-bottom: 50px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-  .col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-  }
+    button:hover {
+      background-color: var(--accent-color-dark);
+    }
 
-  .row {
-    background-color: var(--secondary-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    .button-container {
+      display: flex;
+      padding-top: 20px;
+      justify-content: start;
+      align-items: center;
+      width: 100%;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .row {
+      background-color: var(--secondary-color);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
   }
 </style>
