@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Canvas } from "@threlte/core";
-  import { Environment } from '@threlte/extras'
+  import { Environment } from "@threlte/extras";
 
   import HomeScene from "../scenes/homeScene.svelte";
   import ExperienceList from "../components/experienceList.svelte";
@@ -8,9 +8,6 @@
   import AboutMe from "../components/aboutMe.svelte";
   import JourneyResume from "../components/journeyResume.svelte";
   import SkillsList from "../components/skillsList.svelte";
-
-
-  
 </script>
 
 <main>
@@ -22,13 +19,14 @@
   <div class="content">
     <PresentationSection />
     <ExperienceList />
-    <AboutMe />
-    <JourneyResume />
-    <SkillsList />
+      <!-- <AboutMe /> -->
+      <JourneyResume />
+      <SkillsList />
   </div>
 </main>
 
 <style>
+
   .canvas {
     position: fixed;
     z-index: -1;

@@ -28,63 +28,49 @@
 </main>
 
 <style>
-  @media only screen and (max-width: 400px) {
-    section {
-      margin-bottom: 700px;
-      padding: 20px;
-      justify-content: end;
-      align-items: center;
-    }
+  section {
+    margin-bottom: 700px;
+    padding: 20px;
+    grid-column: 1 / 13;
+    justify-content: end;
+    align-items: center;
+  }
 
-    .pic {
-      width: 80%;
-      height: auto;
-    }
+  .pic {
+    width: 80%;
+    height: auto;
+  }
 
-    .pic-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
+  .pic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
-    button {
-      width: 100%;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 10px 20px;
-      margin-bottom: 50px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  button {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   @media only screen and (min-width: 768px) {
     /* For desktop: */
     section {
+      grid-column: 1 / 13;
       margin-bottom: 700px;
-    }
-    .pic-container {
-      display: flex;
-      justify-content: center;
+      padding: 40px;
+      background-color: var(--secondary-color);
     }
     .pic {
       width: 50%;
       height: auto;
       padding: 20px;
     }
-
-    button {
-      width: 250px;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 10px 20px;
-      margin-bottom: 50px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
     button:hover {
       background-color: var(--accent-color-dark);
     }
@@ -105,7 +91,7 @@
     }
 
     .row {
-      background-color: var(--secondary-color);
+      
       display: flex;
       flex-direction: row;
       justify-content: space-around;

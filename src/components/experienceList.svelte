@@ -13,18 +13,6 @@
       <div class="experience-list">
         <div class="experience-item">
           <div class="icon">
-            <FaDatabase />
-          </div>
-          <h3>Back-End Development</h3>
-          <p>
-            I have experience with Node.js, Express.js, JWT, ORMs like Sequelize
-            and using dependency injection, and design patterns to create secure
-            APIs for robust web applications with database services like
-            MongoDB, MySQL, and Postgres
-          </p>
-        </div>
-        <div class="experience-item">
-          <div class="icon">
             <FaCode />
           </div>
           <h3>Front-End Development</h3>
@@ -33,6 +21,18 @@
             with React, Material UI, Remix, Svelte, and Testing Libraries like
             Jest and Cypress to create responsive and interactive user
             interfaces
+          </p>
+        </div>
+        <div class="experience-item">
+          <div class="icon">
+            <FaDatabase />
+          </div>
+          <h3>Back-End Development</h3>
+          <p>
+            I have experience with Node.js, Express.js, JWT, ORMs like Sequelize
+            and using dependency injection, and design patterns to create secure
+            APIs for robust web applications with database services like
+            MongoDB, MySQL, and Postgres
           </p>
         </div>
         <div class="experience-item">
@@ -66,7 +66,9 @@
 
 <style>
   section {
-    margin-bottom: 200px;
+    margin-bottom: 700px;
+    padding: 20px;
+    grid-column: 1 / 13;
   }
   p {
     font-family: "Courier New", Courier, monospace;
@@ -82,7 +84,6 @@
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     text-align: center;
-    background-color: rgba(49, 54, 63, 0.5);
   }
   .icon {
     width: 100%;
@@ -109,6 +110,5 @@
     border: 5px solid #ccc;
     border-radius: 15px;
     width: 350px;
-    margin-right: 20px;
   }
 </style>

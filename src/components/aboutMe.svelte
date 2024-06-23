@@ -57,8 +57,10 @@
 </main>
 
 <style>
-  section{
-    margin-bottom: 300px;
+  section {
+    margin-bottom: 700px;
+    padding: 20px;
+    grid-column: 1 / 13;
   }
   .decoration-icon {
     position: absolute;
@@ -74,8 +76,7 @@
     position: absolute;
     z-index: 2;
     width: 10%;
-    bottom: 0;
-    left: -10px;
+    bottom: 0;    
     height: 33px;
     background-color: var(--main-color);
   }
@@ -156,7 +157,6 @@
   }
   .about-container {
     position: relative;
-    padding-inline: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: 80px;
