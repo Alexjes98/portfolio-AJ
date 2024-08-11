@@ -1,15 +1,26 @@
 <script>
+  // @ts-nocheck
+
   import * as Threlte from "@threlte/core";
   import * as Three from "three";
 
   import { T, useTask } from "@threlte/core";
-  import { AmbientLight, GridHelper, Vector3 } from "three";
+  import { AmbientLight, GridHelper, Vector3, DoubleSide } from "three";
   import { OrbitControls } from "@threlte/extras";
   import { onMount } from "svelte";
-  import { Grid, interactivity, Environment, GLTF } from "@threlte/extras";
+  import {
+    Grid,
+    interactivity,
+    Environment,
+    GLTF,
+    ImageMaterial,
+  } from "@threlte/extras";
   import { spring } from "svelte/motion";
   import Box from "./components/Box.svelte";
+  import ProjectItem from "./components/ProjectItem.svelte";
   import Gear from "./components/Gear.svelte";
+
+  import { PI } from "three/examples/jsm/nodes/Nodes.js";
   interactivity();
 
   let rotation = 0;
@@ -39,9 +50,8 @@
       if (fallingCubes[i]) {
         if (fallingCubes[i]) {
           fallingCubes[i].position[0] += delta * fallingCubes[i].speed;
-          fallingCubes[i].position[1] = (4 * Math.sin(
-            delta * fallingCubes[i].position[0]
-          ));
+          fallingCubes[i].position[1] =
+            4 * Math.sin(delta * fallingCubes[i].position[0]);
         }
       }
       if (fallingCubes[i].position[0] > 800) {
@@ -205,10 +215,12 @@
       cameraPosition = cameraPosition.map((v, i) => {
         return scrollY / 100;
       });
-    } else if (scrollY < 4000) {
+    } else if (scrollY < 6000) {
       cameraPosition = [0 + scrollY / 100, 0, 0];
-    } else if (scrollY < 9000) {
+    } else if (scrollY < 11000) {
       cameraPosition = [-5, -40 + scrollY / 100, 0];
+    } else if (scrollY < 25000) {
+      cameraPosition = [-30 + scrollY / 100, 0, 100 - scrollY / 100];
     } else {
       cameraPosition = [0 + scrollY / 100, 0, 0];
     }
@@ -372,6 +384,80 @@
     <T.MeshBasicMaterial color="blue" />
   </T.Mesh>
 {/each}
+
+<ProjectItem
+  position={[75, 0, -20]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[20, 11.5, 1]}
+  url="stipe.png"
+  items={[
+    { url: "react.png" },
+    { url: "ec2.jpeg" },
+    { url: "nodejs.png" },
+    { url: "amplify.jpeg" },
+  ]}
+/>
+
+<ProjectItem
+  position={[95, 0, -40]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[23, 11.3, 1]}
+  url="littlebellies.png"
+  items={[
+    { url: "react.png" },
+    { url: "cy.jpeg" },
+    { url: "lambda.png" },
+    { url: "dinamo.png" },
+  ]}
+/>
+
+<ProjectItem
+  position={[115, 0, -60]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[23, 11.5, 1]}
+  url="progressive.png"
+  items={[
+    { url: "remix.jpg", zoom: 0.7 },
+    { url: "beanstalk.jpeg" },
+    { url: "cy.jpeg" },
+    { url: "nodejs.png" },
+    { url: "postgres.png" },
+    { url: "cognito.png" },
+    { url: "s3.jpeg" },
+  ]}
+/>
+
+<ProjectItem
+  position={[138, 0, -80]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[20, 11.5, 1]}
+  url="skynet.png"
+  items={[
+    { url: "react.png" },
+    { url: "amplify.jpeg" },
+    { url: "cy.jpeg" },
+    { url: "nodejs.png" },
+    { url: "postgres.png" },
+    { url: "cognito.png" },
+    { url: "s3.jpeg" },
+  ]}
+/>
+
+<ProjectItem
+  position={[158, 0, -100]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[20, 11.5, 1]}
+  url="clew.png"
+  items={[
+    { url: "azure.png" },
+    { url: "react.png" },
+    { url: "python.jpg" },
+    { url: "function.png" },
+    { url: "search.png" },
+    { url: "openai.png" },
+    { url: "cosmosdb.jpg" },
+  ]}
+  />
 
 <!-- Home Page
  //A brief introduction about yourself

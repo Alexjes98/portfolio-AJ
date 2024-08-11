@@ -8,6 +8,8 @@
   import AboutMe from "../components/aboutMe.svelte";
   import JourneyResume from "../components/journeyResume.svelte";
   import SkillsList from "../components/skillsList.svelte";
+  import ProjectsList from "../components/projectsList.svelte";
+  import Contact from "../components/contact.svelte";
 </script>
 
 <main>
@@ -22,6 +24,8 @@
       <AboutMe />
       <JourneyResume />
       <SkillsList />
+      <ProjectsList />
+      <Contact />
   </div>
 </main>
 

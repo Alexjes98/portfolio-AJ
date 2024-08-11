@@ -108,6 +108,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--main-color);
+    border-radius: 10px;
   }
   img {
     width: 100px;
@@ -117,6 +119,15 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    
+  }
+  h2 {
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    text-align: center;
   }
 </style>
