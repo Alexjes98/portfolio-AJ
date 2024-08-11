@@ -1,16 +1,16 @@
 <script>
   let mainSkills = [
     {
-      name: "Node",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
+      name: "React",
+      img: "https://camo.githubusercontent.com/d764e0d1b0bb6fc6e65157b3c98b9e203a13a17390309fad633406c3324dbfb2/68747470733a2f2f72656163746e61746976652e6465762f696d672f6865616465725f6c6f676f2e737667",
     },
     {
       name: "Express",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
-    },
+    },    
     {
-      name: "React",
-      img: "https://camo.githubusercontent.com/d764e0d1b0bb6fc6e65157b3c98b9e203a13a17390309fad633406c3324dbfb2/68747470733a2f2f72656163746e61746976652e6465762f696d672f6865616465725f6c6f676f2e737667",
+      name: "Node",
+      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
     },
     {
       name: "JavaScript",
@@ -29,11 +29,6 @@
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     },
     {
-      name: "Azure",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original-wordmark.svg",
-    },
-    
-    {
       name: "PostgreSQL",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
     },
@@ -45,17 +40,22 @@
       name: "Firebase",
       img: "https://camo.githubusercontent.com/3e5344a2965e786497ceb575ad67d2c64d412bb9683da05791edf424a0e40734/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f66697265626173652f66697265626173652d69636f6e2e737667",
     },
-    {
-      name: "Cypress",
-      img: "https://www.cypress.io/_astro/navbar-brand.D87396b0.svg",
-    },
+    
   ];
 
   let secondarySkills = [
     {
       name: "Python",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg",
-    },    
+    },
+    {
+      name: "Azure",
+      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original-wordmark.svg",
+    },
+    {
+      name: "Cypress",
+      img: "https://www.cypress.io/_astro/navbar-brand.D87396b0.svg",
+    },
     {
       name: "Svelte",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/svelte/svelte-original-wordmark.svg",

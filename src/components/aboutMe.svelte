@@ -59,7 +59,6 @@
 <style>
   section {
     margin-bottom: 700px;
-    padding: 20px;
     grid-column: 1 / 13;
   }
   .decoration-icon {
@@ -120,13 +119,20 @@
     margin-right: 20px;
   }
 
+  .row{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
   .avatar {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     border-radius: 500px;
     overflow: hidden;
   }
@@ -140,13 +146,7 @@
     font-weight: bold;
     text-align: center;
   }
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex: 2;
-  }
+  
   .col {
     display: flex;
     flex-direction: column;
@@ -167,5 +167,20 @@
   h4,
   h1 {
     color: var(--background-color);
+  }
+  @media only screen and (min-width: 768px) {
+    .avatar {
+      width: 300px;
+      height: 300px;
+      border-radius: 300px;
+    }
+
+    .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex: 2;
+  }
   }
 </style>

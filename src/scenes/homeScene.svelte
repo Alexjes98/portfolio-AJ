@@ -1,9 +1,12 @@
 <script>
+  import * as Threlte from "@threlte/core";
+  import * as Three from "three";
+
   import { T, useTask } from "@threlte/core";
   import { AmbientLight, GridHelper, Vector3 } from "three";
   import { OrbitControls } from "@threlte/extras";
   import { onMount } from "svelte";
-  import { Grid, interactivity } from "@threlte/extras";
+  import { Grid, interactivity, Environment, GLTF } from "@threlte/extras";
   import { spring } from "svelte/motion";
   import Box from "./components/Box.svelte";
   import Gear from "./components/Gear.svelte";

@@ -19,7 +19,7 @@
   <div class="content">
     <PresentationSection />
     <ExperienceList />
-      <!-- <AboutMe /> -->
+      <AboutMe />
       <JourneyResume />
       <SkillsList />
   </div>
