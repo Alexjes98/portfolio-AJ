@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { MeshBasicMaterial } from 'three';
   import { forwardEventHandlers, T, useTask } from "@threlte/core";
-  import { useCursor } from "@threlte/extras";
+  import { useCursor, useGltf } from "@threlte/extras";
   import { spring } from "svelte/motion";
   const scale = spring(1);
   const component = forwardEventHandlers();
@@ -32,7 +33,7 @@
     />
   {/each}
   <T.PointLight
-    position={[position[0] + geometry[0] , position[1], position[2]]}
+    position={[position[0] + geometry[0], position[1], position[2]]}
     {rotation}
     intensity={100}
     color={"blue"}

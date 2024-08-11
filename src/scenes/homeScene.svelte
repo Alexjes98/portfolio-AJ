@@ -6,7 +6,7 @@
 
   import { T, useTask } from "@threlte/core";
   import { AmbientLight, GridHelper, Vector3, DoubleSide } from "three";
-  import { OrbitControls } from "@threlte/extras";
+  import { OrbitControls, useGltf } from "@threlte/extras";
   import { onMount } from "svelte";
   import {
     Grid,
@@ -457,7 +457,7 @@
     { url: "openai.png" },
     { url: "cosmosdb.jpg" },
   ]}
-  />
+/>
 
 <!-- Home Page
  //A brief introduction about yourself
