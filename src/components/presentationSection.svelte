@@ -33,7 +33,7 @@
     padding: 20px;
     grid-column: 1 / 13;
     justify-content: end;
-    align-items: center;
+    align-items: center;    
   }
 
   .pic {
@@ -91,7 +91,6 @@
     }
 
     .row {
-      
       display: flex;
       flex-direction: row;
       justify-content: space-around;

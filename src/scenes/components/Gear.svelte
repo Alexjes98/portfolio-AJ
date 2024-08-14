@@ -1,21 +1,23 @@
 <script lang="ts">
-  import { MeshBasicMaterial } from 'three';
+  import { MeshBasicMaterial } from "three";
   import { forwardEventHandlers, T, useTask } from "@threlte/core";
-  import { useCursor, useGltf } from "@threlte/extras";
+  import { useCursor } from "@threlte/extras";
   import { spring } from "svelte/motion";
+
+  import Model from "../../../gear.svelte";
   const scale = spring(1);
   const component = forwardEventHandlers();
   const { onPointerEnter, onPointerLeave } = useCursor();
-  export let color = "red";
   export let position = [0, 0, 0];
   export let rotation = [0, 0, 0];
-  export let geometry = [1, 1, 1];
+  export let orientation = 1;
+  export let size = [1, 1, 1];
   export let lights: any[] = [];
   export let isActive = false;
   export let rotationSpeed = 0.1;
 
   useTask((delta) => {
-    if (isActive) rotation[1] += delta * rotationSpeed;
+    if (isActive) rotation[orientation] += delta * rotationSpeed;
   });
 </script>
 
@@ -29,48 +31,45 @@
       ]}
       {rotation}
       intensity={light.intensity}
-      color={"blue"}
+      color={"darkblue"}
     />
   {/each}
   <T.PointLight
-    position={[position[0] + geometry[0], position[1], position[2]]}
+    position={[position[0] + size[0], position[1], position[2]]}
     {rotation}
     intensity={100}
-    color={"blue"}
+    color={"darkblue"}
   />
   <T.PointLight
-    position={[position[0] - geometry[0], position[1], position[2]]}
+    position={[position[0] - size[0], position[1], position[2]]}
     {rotation}
-    intensity={100}
-    color={"blue"}
+    intensity={10}
+    color={"darkblue"}
   />
   <T.PointLight
-    position={[position[0], position[1], position[2] + geometry[2]]}
+    position={[position[0], position[1], position[2] + size[2]]}
     {rotation}
-    intensity={100}
-    color={"blue"}
+    intensity={10}
+    color={"darkblue"}
   />
   <T.PointLight
-    position={[position[0], position[1], position[2] - geometry[2]]}
+    position={[position[0], position[1], position[2] - size[2]]}
     {rotation}
-    intensity={100}
-    color={"blue"}
+    intensity={10}
+    color={"darkblue"}
   />
   <T.PointLight
-    position={[position[0], position[1] + geometry[1], position[2]]}
+    position={[position[0], position[1] + size[1], position[2]]}
     {rotation}
-    intensity={100}
-    color={"blue"}
+    intensity={10}
+    color={"darkblue"}
   />
-  <T.Mesh
-    castShadow
-    receiveShadow
+  <Model
+    scale={size}
     {position}
-    rotation={[rotation[0], rotation[1], rotation[2]]}
+    {rotation}
     on:pointerenter={onPointerEnter}
     on:pointerleave={onPointerLeave}
-  >
-    <T.CylinderGeometry args={geometry} />
-    <T.MeshStandardMaterial {color} />
-  </T.Mesh>
+    {component}
+  />
 </T.Group>

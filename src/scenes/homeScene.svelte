@@ -4,6 +4,8 @@
   import * as Threlte from "@threlte/core";
   import * as Three from "three";
 
+  import Model from "../../gear.svelte";
+
   import { T, useTask } from "@threlte/core";
   import { AmbientLight, GridHelper, Vector3, DoubleSide } from "three";
   import { OrbitControls, useGltf } from "@threlte/extras";
@@ -216,9 +218,9 @@
         return scrollY / 100;
       });
     } else if (scrollY < 6000) {
-      cameraPosition = [0 + scrollY / 100, 0, 0];
+      cameraPosition = [-12+0 + scrollY / 100, 0, 0];
     } else if (scrollY < 11000) {
-      cameraPosition = [-5, -40 + scrollY / 100, 0];
+      cameraPosition = [-5, -60 + scrollY / 100, 0];
     } else if (scrollY < 25000) {
       cameraPosition = [-30 + scrollY / 100, 0, 100 - scrollY / 100];
     } else {
@@ -249,9 +251,12 @@
   <OrbitControls enableDamping target={[0, 0, 0]} />
 </T.PerspectiveCamera>
 
-<!-- <T.DirectionalLight position={[20, 40, 20]} castShadow intensity={10} /> -->
+<T.DirectionalLight position={[0, 10, 0]} castShadow intensity={10} />
 
 <!-- <T.GridHelper args={[100, 100]} /> -->
+
+<Model position={[0,-0.5,-1]} rotation={[Math.PI/2,-rotation,0]} />
+<Model position={[0.7,-0.5,-1]} rotation={[Math.PI/2,rotation,0]} />
 
 <Box
   position={[-1, 0, -1]}
@@ -303,51 +308,66 @@
 <Gear
   position={[0, 10, 0]}
   rotation={[0, 0, 0]}
-  geometry={[2, 2, 1, 8]}
+  size={[2, 2, 2]}
   lights={[]}
   isActive={true}
-  rotationSpeed={2}
+  rotationSpeed={4}
 />
 <Gear
   position={[1, 10, -3.7]}
   rotation={[0, 0, 0]}
-  geometry={[2, 2, 1, 8]}
+  size={[8, 8, 8]}
   lights={[]}
   isActive={true}
-  rotationSpeed={-2}
+  rotationSpeed={-1}
 />
 <Gear
-  position={[-8, 8, -3.7]}
+  position={[4.5, 10, 14]}
   rotation={[0, 0, 0]}
-  geometry={[5, 5, 1, 10]}
+  size={[6, 6, 6]}
   lights={[]}
   isActive={true}
-  rotationSpeed={-2}
+  rotationSpeed={5}
 />
 <Gear
   position={[2, 3, 9]}
   rotation={[0, 0, 0]}
-  geometry={[3, 3, 2, 9]}
+  size={[13, 13, 13]}
   lights={[]}
   isActive={true}
-  rotationSpeed={-2}
+  rotationSpeed={-5}
 />
 <Gear
-  position={[2, 6, 7]}
-  rotation={[0, 0, 0]}
-  geometry={[3, 3, 2, 9]}
+  position={[-4, 6, -10]}
+  rotation={[Math.PI/2,0 , 0]}
+  size={[16, 16, 16]}
   lights={[]}
   isActive={true}
-  rotationSpeed={2}
+  rotationSpeed={0.5}
 />
 <Gear
-  position={[2, 9, 4]}
-  rotation={[0, 0, 0]}
-  geometry={[3, 3, 2, 9]}
+  position={[-10, 12, 4]}
+  rotation={[0, 0, Math.PI/2]}
+  orientation={0}
+  size={[38, 38, 38]}
   lights={[]}
   isActive={true}
-  rotationSpeed={-2}
+  rotationSpeed={-0.1}
 />
+<Gear
+  position={[9, 1, 1]}
+  rotation={[Math.PI/4, 0, Math.PI/2]}
+  orientation={0}
+  size={[48, 48, 48]}
+  lights={[]}
+  isActive={true}
+  rotationSpeed={-0.03}
+/>
+
+<T.Mesh receiveShadow position={[2, 0, 9]}>
+  <T.CylinderGeometry args={  [1.1, 1.1, 100, 15]} />
+  <T.MeshStandardMaterial color="black"/>
+</T.Mesh>
 
 <T.Mesh receiveShadow position={[0, -60, 0]}>
   <T.BoxGeometry args={[800, 0, 800]} />
