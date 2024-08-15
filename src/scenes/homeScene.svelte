@@ -368,6 +368,10 @@
   <T.CylinderGeometry args={  [1.1, 1.1, 100, 15]} />
   <T.MeshStandardMaterial color="black"/>
 </T.Mesh>
+<T.Mesh receiveShadow position={[1, 30, -3.7]}>
+  <T.CylinderGeometry args={[0.6, 0.6, 40, 15]} />
+  <T.MeshStandardMaterial color="black"/>
+</T.Mesh>
 
 <T.Mesh receiveShadow position={[0, -60, 0]}>
   <T.BoxGeometry args={[800, 0, 800]} />
