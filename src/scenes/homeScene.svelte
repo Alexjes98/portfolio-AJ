@@ -211,20 +211,37 @@
   let cameraPosition = [0, 0, 0];
 
   let scrollY = 0;
+  let isMobile = window.innerWidth < 768;
 
   $: {
-    if (scrollY < 2000) {
-      cameraPosition = cameraPosition.map((v, i) => {
-        return scrollY / 100;
-      });
-    } else if (scrollY < 6000) {
-      cameraPosition = [-12+0 + scrollY / 100, 0, 0];
-    } else if (scrollY < 11000) {
-      cameraPosition = [-5, -60 + scrollY / 100, 0];
-    } else if (scrollY < 25000) {
-      cameraPosition = [-30 + scrollY / 100, 0, 100 - scrollY / 100];
+    if (isMobile) {
+      if (scrollY < 2000) {
+        cameraPosition = cameraPosition.map((v, i) => {
+          return scrollY / 100;
+        });
+      } else if (scrollY < 7000) {
+        cameraPosition = [-12 + 0 + scrollY / 100, 0, 0];
+      } else if (scrollY < 13000) {
+        cameraPosition = [-5, -70 + scrollY / 100, 0];
+      } else if (scrollY < 24000) {
+        cameraPosition = [-20 + scrollY / 100, 0, 5+ 100 - scrollY / 100];
+      } else {
+        cameraPosition = [-300 + scrollY / 100, 0, +60];
+      }
     } else {
-      cameraPosition = [0 + scrollY / 100, 0, 0];
+      if (scrollY < 2000) {
+        cameraPosition = cameraPosition.map((v, i) => {
+          return scrollY / 100;
+        });
+      } else if (scrollY < 6000) {
+        cameraPosition = [-12 + 0 + scrollY / 100, 0, 0];
+      } else if (scrollY < 11000) {
+        cameraPosition = [-5, -60 + scrollY / 100, 0];
+      } else if (scrollY < 22000) {
+        cameraPosition = [-30 + scrollY / 100, 0, 100 - scrollY / 100];
+      } else {
+        cameraPosition = [-300 + scrollY / 100, 0, +60];
+      }
     }
   }
 
@@ -236,7 +253,6 @@
   // }
 
   $: console.log(scrollY);
-  $: console.log(cameraPosition);
 </script>
 
 <svelte:window bind:scrollY />
@@ -244,6 +260,7 @@
 <T.PerspectiveCamera
   makeDefault
   position={cameraPosition}
+  aspect={window.innerWidth / window.innerHeight}
   on:create={({ ref }) => {
     ref.lookAt(0, 0, 0);
   }}
@@ -255,8 +272,8 @@
 
 <!-- <T.GridHelper args={[100, 100]} /> -->
 
-<Model position={[0,-0.5,-1]} rotation={[Math.PI/2,-rotation,0]} />
-<Model position={[0.7,-0.5,-1]} rotation={[Math.PI/2,rotation,0]} />
+<Model position={[0, -0.5, -1]} rotation={[Math.PI / 2, -rotation, 0]} />
+<Model position={[0.7, -0.5, -1]} rotation={[Math.PI / 2, rotation, 0]} />
 
 <Box
   position={[-1, 0, -1]}
@@ -339,7 +356,7 @@
 />
 <Gear
   position={[-4, 6, -10]}
-  rotation={[Math.PI/2,0 , 0]}
+  rotation={[Math.PI / 2, 0, 0]}
   size={[16, 16, 16]}
   lights={[]}
   isActive={true}
@@ -347,7 +364,7 @@
 />
 <Gear
   position={[-10, 12, 4]}
-  rotation={[0, 0, Math.PI/2]}
+  rotation={[0, 0, Math.PI / 2]}
   orientation={0}
   size={[38, 38, 38]}
   lights={[]}
@@ -356,7 +373,7 @@
 />
 <Gear
   position={[9, 1, 1]}
-  rotation={[Math.PI/4, 0, Math.PI/2]}
+  rotation={[Math.PI / 4, 0, Math.PI / 2]}
   orientation={0}
   size={[48, 48, 48]}
   lights={[]}
@@ -365,12 +382,12 @@
 />
 
 <T.Mesh receiveShadow position={[2, 0, 9]}>
-  <T.CylinderGeometry args={  [1.1, 1.1, 100, 15]} />
-  <T.MeshStandardMaterial color="black"/>
+  <T.CylinderGeometry args={[1.1, 1.1, 100, 15]} />
+  <T.MeshStandardMaterial color="black" />
 </T.Mesh>
 <T.Mesh receiveShadow position={[1, 30, -3.7]}>
   <T.CylinderGeometry args={[0.6, 0.6, 40, 15]} />
-  <T.MeshStandardMaterial color="black"/>
+  <T.MeshStandardMaterial color="black" />
 </T.Mesh>
 
 <T.Mesh receiveShadow position={[0, -60, 0]}>
