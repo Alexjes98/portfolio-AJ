@@ -62,7 +62,7 @@
     /* For desktop: */
     section {
       grid-column: 1 / 13;
-      margin-bottom: 700px;
+      margin-bottom: 7000px;
       padding: 40px;
       background-color: var(--secondary-color);
     }

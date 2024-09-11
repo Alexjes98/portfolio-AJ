@@ -31,13 +31,13 @@
 </script>
 
 <main>
-  <section>
+  <section id="journey-resume">
     <div class="journey-container">
       <div class="col">
         <div>
-          <h2>Education</h2>
+          <h2>Experience</h2>
         </div>
-        {#each education as item}
+        {#each experience as item}
           <div class="experience-item">
             <p>{item.date}</p>
             <h5>{item.location}</h5>
@@ -46,9 +46,9 @@
           </div>
         {/each}
         <div>
-          <h2>Experience</h2>
+          <h2>Education</h2>
         </div>
-        {#each experience as item}
+        {#each education as item}
           <div class="experience-item">
             <p>{item.date}</p>
             <h5>{item.location}</h5>
@@ -63,7 +63,7 @@
 
 <style>
   section {
-    margin-bottom: 700px;
+    margin-bottom: 7000px;
     padding: 20px;
     grid-column: 1 / 13;
     justify-content: center;
@@ -78,7 +78,6 @@
   }
 
   .journey-container {
-    
     padding-top: 50px;
     padding-bottom: 50px;
     width: 100%;

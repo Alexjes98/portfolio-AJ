@@ -72,7 +72,7 @@
 </script>
 
 <main>
-  <section>
+  <section id="skills">
     <h2>My main Skills</h2>
     <div class="row">
       {#each mainSkills as skill}
@@ -98,7 +98,7 @@
 
 <style>
   section {
-    margin-bottom: 300px;
+    margin-bottom: 7000px;
     padding: 20px;
   }
   .skill-item {

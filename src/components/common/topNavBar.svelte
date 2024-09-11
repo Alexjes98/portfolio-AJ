@@ -3,7 +3,13 @@
 </script>
 
 <nav class="top-nav-bar">
-    <a href="/">Home</a>
+    <a href="#presentation">Home</a>
+    <a href="#what-i-do">What I Do</a>
+    <a href="#about-me">About Me</a>
+    <a href="#journey-resume">Journey</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects-list">Projects</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 <style>
@@ -14,6 +20,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 9;
   }
 
   .top-nav-bar a {

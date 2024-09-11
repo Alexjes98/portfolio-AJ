@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Canvas } from "@threlte/core";
-  import { Environment } from "@threlte/extras";
 
   import HomeScene from "../scenes/homeScene.svelte";
   import ExperienceList from "../components/experienceList.svelte";
@@ -21,16 +20,15 @@
   <div class="content">
     <PresentationSection />
     <ExperienceList />
-      <AboutMe />
-      <JourneyResume />
-      <SkillsList />
-      <ProjectsList />
-      <Contact />
+    <AboutMe />
+    <JourneyResume />
+    <SkillsList />
+    <ProjectsList />
+    <Contact />
   </div>
 </main>
 
 <style>
-
   .canvas {
     position: fixed;
     z-index: -1;

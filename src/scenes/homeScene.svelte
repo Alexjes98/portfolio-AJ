@@ -1,34 +1,59 @@
 <script>
-  // @ts-nocheck
-
-  import * as Threlte from "@threlte/core";
-  import * as Three from "three";
-
   import Model from "../../gear.svelte";
 
-  import { T, useTask } from "@threlte/core";
-  import { AmbientLight, GridHelper, Vector3, DoubleSide } from "three";
-  import { OrbitControls, useGltf } from "@threlte/extras";
-  import { onMount } from "svelte";
-  import {
-    Grid,
-    interactivity,
-    Environment,
-    GLTF,
-    ImageMaterial,
-  } from "@threlte/extras";
-  import { spring } from "svelte/motion";
+  import { T, useTask, useThrelte } from "@threlte/core";
+  import { OrbitControls } from "@threlte/extras";
+  import { interactivity } from "@threlte/extras";
+  import { MeshLineGeometry, MeshLineMaterial } from "@threlte/extras";
   import Box from "./components/Box.svelte";
   import ProjectItem from "./components/ProjectItem.svelte";
   import Gear from "./components/Gear.svelte";
+  import { Vector3, CatmullRomCurve3, Color } from "three";
+  
+  const curve = new CatmullRomCurve3([
+    new Vector3(0, 0, 0),    
+    new Vector3(10, 10, 10),
+    new Vector3(18, 0, 0),
+    new Vector3(10, 0, -2),
+    new Vector3(-5, 0, -10),
+    new Vector3(-5, 0, 0),
+    new Vector3(-5, 19, 0),
+    new Vector3(-15, 22, -20),
+    new Vector3(15, 22, -60),
+    new Vector3(15, 22, -90),
+    new Vector3(11, 22, -70),
+    new Vector3(21, 22, -50),
+    new Vector3(31, 12, -30),
+    new Vector3(41, 2, -35),
+    //1 item
+    new Vector3(80, 0, -20),
+    new Vector3(78, 0, -10),
+    //2 item
+    new Vector3(99, 0, 17),
+    new Vector3(97, 0, 27),
+    //3 item
+    new Vector3(120, -20, 0),
+    new Vector3(118, -15, -40),
+    //4 item
+    new Vector3(156, 0, 3),
+    new Vector3(154, 0, 23),
+    //5 item
+    new Vector3(185, 0, -13),
+    new Vector3(183, 0, -33),
+    //end
+    new Vector3(190, 0, -50),
+    new Vector3(101, 0, -30),
 
-  import { PI } from "three/examples/jsm/nodes/Nodes.js";
+    new Vector3(14, 0, 60),
+  ])
+  const points = curve.getPoints(80000);
+
   interactivity();
 
   let rotation = 0;
   useTask((delta) => {
     rotation += delta;
-  });
+  });  
 
   class FallingSphere {
     /**
@@ -215,44 +240,16 @@
 
   $: {
     if (isMobile) {
-      if (scrollY < 2000) {
-        cameraPosition = cameraPosition.map((v, i) => {
-          return scrollY / 100;
-        });
-      } else if (scrollY < 7000) {
-        cameraPosition = [-12 + 0 + scrollY / 100, 0, 0];
-      } else if (scrollY < 13000) {
-        cameraPosition = [-5, -70 + scrollY / 100, 0];
-      } else if (scrollY < 24000) {
-        cameraPosition = [-20 + scrollY / 100, 0, 5+ 100 - scrollY / 100];
-      } else {
-        cameraPosition = [-300 + scrollY / 100, 0, +60];
-      }
+      cameraPosition = [points[scrollY].x, points[scrollY].y, points[scrollY].z];
     } else {
-      if (scrollY < 2000) {
-        cameraPosition = cameraPosition.map((v, i) => {
-          return scrollY / 100;
-        });
-      } else if (scrollY < 6000) {
-        cameraPosition = [-12 + 0 + scrollY / 100, 0, 0];
-      } else if (scrollY < 11000) {
-        cameraPosition = [-5, -60 + scrollY / 100, 0];
-      } else if (scrollY < 22000) {
-        cameraPosition = [-30 + scrollY / 100, 0, 100 - scrollY / 100];
-      } else {
-        cameraPosition = [-300 + scrollY / 100, 0, +60];
-      }
+      cameraPosition = [points[scrollY].x, points[scrollY].y, points[scrollY].z];
     }
   }
 
-  // function onWindowResize() {
-  //   camera.aspect = window.innerWidth / window.innerHeight;
-  //   camera.updateProjectionMatrix();
-
-  //   renderer.setSize(window.innerWidth, window.innerHeight);
-  // }
-
   $: console.log(scrollY);
+  $: console.log(cameraPosition);
+
+  
 </script>
 
 <svelte:window bind:scrollY />
@@ -261,9 +258,7 @@
   makeDefault
   position={cameraPosition}
   aspect={window.innerWidth / window.innerHeight}
-  on:create={({ ref }) => {
-    ref.lookAt(0, 0, 0);
-  }}
+  near={0.1}
 >
   <OrbitControls enableDamping target={[0, 0, 0]} />
 </T.PerspectiveCamera>
@@ -389,13 +384,14 @@
   <T.CylinderGeometry args={[0.6, 0.6, 40, 15]} />
   <T.MeshStandardMaterial color="black" />
 </T.Mesh>
-
-<T.Mesh receiveShadow position={[0, -60, 0]}>
+<!-- floor -->
+<T.Mesh receiveShadow position={[0, -70, 0]}>
   <T.BoxGeometry args={[800, 0, 800]} />
   <T.MeshStandardMaterial color="white" />
 </T.Mesh>
-<T.Mesh receiveShadow position={[0, 20, -140]}>
-  <T.BoxGeometry args={[800, 200, 1]} />
+<!-- walls -->
+<T.Mesh receiveShadow position={[0, 0, -150]}>
+  <T.BoxGeometry args={[900, 200, 1]} />
   <T.MeshStandardMaterial color="white" />
 </T.Mesh>
 <T.Mesh receiveShadow position={[0, 0, 60]}>
@@ -410,6 +406,7 @@
   <T.BoxGeometry args={[10, 400, 600]} />
   <T.MeshStandardMaterial color="white" />
 </T.Mesh>
+<!-- ceiling -->
 <T.Mesh receiveShadow position={[0, 80, 0]}>
   <T.BoxGeometry args={[800, 10, 800]} />
   <T.MeshStandardMaterial color="white" />
@@ -427,49 +424,23 @@
 {/each}
 
 <ProjectItem
-  position={[75, 0, -20]}
+  position={[58, 0, -10]}
   rotation={[0, Math.PI - 3 / 2, 0]}
   geometry={[20, 11.5, 1]}
-  url="stipe.png"
+  url="clew.png"
   items={[
+    { url: "azure.png" },
     { url: "react.png" },
-    { url: "ec2.jpeg" },
-    { url: "nodejs.png" },
-    { url: "amplify.jpeg" },
+    { url: "python.jpg" },
+    { url: "function.png" },
+    { url: "search.png" },
+    { url: "openai.png" },
+    { url: "cosmosdb.jpg" },
   ]}
 />
 
 <ProjectItem
-  position={[95, 0, -40]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[23, 11.3, 1]}
-  url="littlebellies.png"
-  items={[
-    { url: "react.png" },
-    { url: "cy.jpeg" },
-    { url: "lambda.png" },
-    { url: "dinamo.png" },
-  ]}
-/>
-
-<ProjectItem
-  position={[115, 0, -60]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[23, 11.5, 1]}
-  url="progressive.png"
-  items={[
-    { url: "remix.jpg", zoom: 0.7 },
-    { url: "beanstalk.jpeg" },
-    { url: "cy.jpeg" },
-    { url: "nodejs.png" },
-    { url: "postgres.png" },
-    { url: "cognito.png" },
-    { url: "s3.jpeg" },
-  ]}
-/>
-
-<ProjectItem
-  position={[138, 0, -80]}
+  position={[80, 0, 12]}
   rotation={[0, Math.PI - 3 / 2, 0]}
   geometry={[20, 11.5, 1]}
   url="skynet.png"
@@ -485,18 +456,44 @@
 />
 
 <ProjectItem
-  position={[158, 0, -100]}
+  position={[100, -15,-20]}
   rotation={[0, Math.PI - 3 / 2, 0]}
   geometry={[20, 11.5, 1]}
-  url="clew.png"
+  url="stipe.png"
   items={[
-    { url: "azure.png" },
     { url: "react.png" },
-    { url: "python.jpg" },
-    { url: "function.png" },
-    { url: "search.png" },
-    { url: "openai.png" },
-    { url: "cosmosdb.jpg" },
+    { url: "ec2.jpeg" },
+    { url: "nodejs.png" },
+    { url: "amplify.jpeg" },
+  ]}
+/>
+
+<ProjectItem
+  position={[130, 0, 0]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[23, 11.3, 1]}
+  url="littlebellies.png"
+  items={[
+    { url: "react.png" },
+    { url: "cy.jpeg" },
+    { url: "lambda.png" },
+    { url: "dinamo.png" },
+  ]}
+/>
+
+<ProjectItem
+  position={[165, 0, -20]}
+  rotation={[0, Math.PI - 3 / 2, 0]}
+  geometry={[23, 11.5, 1]}
+  url="progressive.png"
+  items={[
+    { url: "remix.jpg", zoom: 0.7 },
+    { url: "beanstalk.jpeg" },
+    { url: "cy.jpeg" },
+    { url: "nodejs.png" },
+    { url: "postgres.png" },
+    { url: "cognito.png" },
+    { url: "s3.jpeg" },
   ]}
 />
 
@@ -504,9 +501,9 @@
  //A brief introduction about yourself
 A headshot or logo
 //A tagline that summarizes your expertise
-About Page
-Your professional background
-Your skills and areas of expertise
+//About Page
+//Your professional background
+//Your skills and areas of expertise
 Personal interests or hobbies that relate to your profession
 Portfolio/Gallery
 High-quality images or screenshots of your work

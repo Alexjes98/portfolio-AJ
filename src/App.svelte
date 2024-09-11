@@ -7,7 +7,7 @@
 </script>
 
 <Layout>
-  <TopNavBar />
+  <TopNavBar />  
   <Router>
     <Route path="/" component={Home} />
     <Route path="/my-projects" component={MyProjects} />

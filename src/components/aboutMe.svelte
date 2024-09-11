@@ -58,7 +58,7 @@
 
 <style>
   section {
-    margin-bottom: 700px;
+    margin-bottom: 7000px;
     grid-column: 1 / 13;
   }
   .decoration-icon {
