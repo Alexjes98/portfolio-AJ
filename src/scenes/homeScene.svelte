@@ -2,16 +2,16 @@
   import Model from "../../gear.svelte";
 
   import { T, useTask, useThrelte } from "@threlte/core";
-  import { OrbitControls } from "@threlte/extras";
-  import { interactivity } from "@threlte/extras";
+  import { OrbitControls, interactivity } from "@threlte/extras";  
   import { MeshLineGeometry, MeshLineMaterial } from "@threlte/extras";
-  import Box from "./components/Box.svelte";
-  import ProjectItem from "./components/ProjectItem.svelte";
-  import Gear from "./components/Gear.svelte";
   import { Vector3, CatmullRomCurve3, Color } from "three";
   
+  import Box from "./components/Box.svelte";
+  import Gear from "./components/Gear.svelte";
+  import Nucleus from "./components/Nucleus.svelte";
+
   const curve = new CatmullRomCurve3([
-    new Vector3(0, 0, 0),    
+    new Vector3(0, 0, 0),
     new Vector3(10, 10, 10),
     new Vector3(18, 0, 0),
     new Vector3(10, 0, -2),
@@ -19,41 +19,19 @@
     new Vector3(-5, 0, 0),
     new Vector3(-5, 19, 0),
     new Vector3(-15, 22, -20),
-    new Vector3(15, 22, -60),
-    new Vector3(15, 22, -90),
-    new Vector3(11, 22, -70),
-    new Vector3(21, 22, -50),
-    new Vector3(31, 12, -30),
-    new Vector3(41, 2, -35),
-    //1 item
-    new Vector3(80, 0, -20),
-    new Vector3(78, 0, -10),
-    //2 item
-    new Vector3(99, 0, 17),
-    new Vector3(97, 0, 27),
-    //3 item
-    new Vector3(120, -20, 0),
-    new Vector3(118, -15, -40),
-    //4 item
-    new Vector3(156, 0, 3),
-    new Vector3(154, 0, 23),
-    //5 item
-    new Vector3(185, 0, -13),
-    new Vector3(183, 0, -33),
-    //end
-    new Vector3(190, 0, -50),
-    new Vector3(101, 0, -30),
-
+    new Vector3(10, 0, -50),
+    new Vector3(31, 0, -30),
     new Vector3(14, 0, 60),
-  ])
-  const points = curve.getPoints(80000);
+  ]);
+  const maxScrollY = 100000;  
+  const points = curve.getPoints(maxScrollY);
 
   interactivity();
 
   let rotation = 0;
   useTask((delta) => {
     rotation += delta;
-  });  
+  });
 
   class FallingSphere {
     /**
@@ -72,7 +50,7 @@
     }
   }
 
-  useTask((delta) => {
+  useTask((delta) => {    
     for (let i = 0; i < fallingCubes.length; i++) {
       if (fallingCubes[i]) {
         if (fallingCubes[i]) {
@@ -240,16 +218,26 @@
 
   $: {
     if (isMobile) {
-      cameraPosition = [points[scrollY].x, points[scrollY].y, points[scrollY].z];
+      if (scrollY < maxScrollY) {
+        cameraPosition = [
+          points[scrollY].x,
+          points[scrollY].y,
+          points[scrollY].z,
+        ];
+      }
     } else {
-      cameraPosition = [points[scrollY].x, points[scrollY].y, points[scrollY].z];
+      if (scrollY < maxScrollY) {
+        cameraPosition = [
+          points[scrollY].x,
+          points[scrollY].y,
+          points[scrollY].z,
+        ];
+      }
     }
   }
 
   $: console.log(scrollY);
   $: console.log(cameraPosition);
-
-  
 </script>
 
 <svelte:window bind:scrollY />
@@ -263,13 +251,37 @@
   <OrbitControls enableDamping target={[0, 0, 0]} />
 </T.PerspectiveCamera>
 
-<T.DirectionalLight position={[0, 10, 0]} castShadow intensity={10} />
+<!-- <T.DirectionalLight position={[0, 10, 0]} castShadow intensity={10} /> -->
 
 <!-- <T.GridHelper args={[100, 100]} /> -->
 
 <Model position={[0, -0.5, -1]} rotation={[Math.PI / 2, -rotation, 0]} />
 <Model position={[0.7, -0.5, -1]} rotation={[Math.PI / 2, rotation, 0]} />
 
+<T.Mesh receiveShadow position={[0, 0 + 4 * Math.sin(rotation) - 10, 10]}>
+  <T.CylinderGeometry args={[2, 2, 10, 15]} />
+  <T.MeshStandardMaterial color="black" />
+</T.Mesh>
+<T.Mesh receiveShadow position={[-3, 0 + 4 * Math.cos(rotation) - 10, 10]}>
+  <T.CylinderGeometry args={[2, 2, 10, 15]} />
+  <T.MeshStandardMaterial color="black" />
+</T.Mesh>
+<T.Mesh receiveShadow position={[-1, 0 + Math.cos(rotation), -1]}>
+  <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
+  <T.MeshStandardMaterial color="black" />
+</T.Mesh>
+<T.Mesh receiveShadow position={[-1, 0 + Math.sin(rotation), -2]}>
+  <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
+  <T.MeshStandardMaterial color="black" />
+</T.Mesh>
+<T.Mesh receiveShadow position={[1, 0 - Math.cos(rotation * 2), -2]}>
+  <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
+  <T.MeshStandardMaterial color="black" />
+</T.Mesh>
+<T.Mesh receiveShadow position={[0, 0 - Math.sin(rotation), -2]}>
+  <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
+  <T.MeshStandardMaterial color="black" />
+</T.Mesh>
 <Box
   position={[-1, 0, -1]}
   color="black"
@@ -423,7 +435,7 @@
   </T.Mesh>
 {/each}
 
-<ProjectItem
+<!-- <ProjectItem
   position={[58, 0, -10]}
   rotation={[0, Math.PI - 3 / 2, 0]}
   geometry={[20, 11.5, 1]}
@@ -456,7 +468,7 @@
 />
 
 <ProjectItem
-  position={[100, -15,-20]}
+  position={[100, -15, -20]}
   rotation={[0, Math.PI - 3 / 2, 0]}
   geometry={[20, 11.5, 1]}
   url="stipe.png"
@@ -495,7 +507,10 @@
     { url: "cognito.png" },
     { url: "s3.jpeg" },
   ]}
-/>
+/> -->
+
+<!-- Nucleos part -->
+<Nucleus />
 
 <!-- Home Page
  //A brief introduction about yourself

@@ -121,6 +121,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
   h2 {
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
     color: white;
