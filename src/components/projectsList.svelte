@@ -60,7 +60,6 @@
           "S3",
         ]}
       />
-
       <ProjectItem
         id="stipe"
         images={["stipe.png", "stipe1.png", "stipe2.png"]}
@@ -81,7 +80,11 @@
       />
       <ProjectItem
         id="little-bellies"
-        images={["littlebellies.png", "littlebellies1.png", "littlebellies2.png"]}
+        images={[
+          "littlebellies.png",
+          "littlebellies1.png",
+          "littlebellies2.png",
+        ]}
         prevId="#stipe"
         nextId="#progressive-label"
         title="Little Bellies"
@@ -96,8 +99,7 @@
         title="Progressive Label"
         description="I worked for Progressive Label developing Cypress tests for the Frontend and Jest test for the backend server.
         The web app consists of a service to generate labels for products and manage the creation process for those labels.
-        The app is developed in Remix and uses Postgres as the database, the backend server is developed in Node.js and Express.js.
-        "
+        The app is developed in Remix and uses Postgres as the database, the backend server is developed in Node.js and Express.js."
         technologies={[
           "Cypress",
           "Jest",

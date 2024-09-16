@@ -1,7 +1,5 @@
 <script>
   // @ts-nocheck
-  import { Carousel } from "flowbite-svelte";
-  import Indicators from "flowbite-svelte/Indicators.svelte";
   import FaInfo from "svelte-icons/fa/FaInfo.svelte";
   let show = true;
   export let title;
@@ -46,9 +44,7 @@
   <div>
     {#if show}
       <div class="grid grid-cols-4 grid-rows-1">
-        <div
-        style="margin-bottom: 15px;"
-         class="col-span-4 row-span-1">
+        <div style="margin-bottom: 15px;" class="col-span-4 row-span-1">
           <b>
             {#each technologies as technologie}
               <b>{technologie}, </b>
@@ -56,10 +52,10 @@
           </b>
         </div>
         <div class="col-span-1 row-span-1 p-2">
-          <p class="text-start"> 
+          <p class="text-start">
             {description}
           </p>
-          <div class="row">
+          <div class="links-row">
             {#if prevId}
               <a href={prevId}>Back</a>
             {/if}
@@ -75,7 +71,7 @@
           >
             {#each images as image, index}
               <img
-                src={"/"+image}
+                src={"/" + image}
                 alt={`Slide ${index + 1}`}
                 class="absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-500 ease-in-out"
                 style="opacity: {index === currentIndex
@@ -149,6 +145,19 @@
 </div>
 
 <style>
+  .links-row {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--accent-color);
+  }
   .invisible-container {
     margin-bottom: 1000px;
   }
