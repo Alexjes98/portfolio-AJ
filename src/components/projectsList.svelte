@@ -13,12 +13,12 @@
       <a href="#freddaid">Start</a>
     </div>
     <div class="project-list">
-      <div
-      style="height: 11100px; width: 50px; background-color: red;"
-      >MARGIN</div>
+      <div style="height: 11100px; width: 50px; background-color: red;">
+        MARGIN
+      </div>
       <ProjectItem
         id="freddaid"
-        imgSrc="clew.png"
+        images={["clew.png", "clew1.png", "clew2.png"]}
         nextId="#sales-factory"
         title="Sales Factory - FreddAid"
         description="I worked for Sales Factory developing a chatbot that uses RAG (Retrieval Augmented Generation) to answer questions about different Sales Factory Clients data and services.
@@ -39,7 +39,7 @@
       />
       <ProjectItem
         id="sales-factory"
-        imgSrc="skynet.png"
+        images={["skynet.png", "skynet1.png", "skynet2.png"]}
         prevId="#freddaid"
         nextId="#stipe"
         title="Sales Factory"
@@ -63,7 +63,7 @@
 
       <ProjectItem
         id="stipe"
-        imgSrc="stipe.png"
+        images={["stipe.png", "stipe1.png", "stipe2.png"]}
         prevId="#sales-factory"
         nextId="#little-bellies"
         title="Stipe"
@@ -81,7 +81,7 @@
       />
       <ProjectItem
         id="little-bellies"
-        imgSrc="littlebellies.png"
+        images={["littlebellies.png", "littlebellies1.png", "littlebellies2.png"]}
         prevId="#stipe"
         nextId="#progressive-label"
         title="Little Bellies"
@@ -91,7 +91,7 @@
       />
       <ProjectItem
         id="progressive-label"
-        imgSrc="progressive.png"
+        images={["progressive.png", "progressive1.png", "progressive2.png"]}
         prevId="#little-bellies"
         title="Progressive Label"
         description="I worked for Progressive Label developing Cypress tests for the Frontend and Jest test for the backend server.
