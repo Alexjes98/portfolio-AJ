@@ -20,10 +20,10 @@
   <div class="content">
     <PresentationSection />
     <ExperienceList />
+    <ProjectsList />
     <AboutMe />
     <JourneyResume />
     <SkillsList />
-    <ProjectsList />
     <Contact />
   </div>
 </main>

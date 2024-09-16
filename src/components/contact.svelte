@@ -1,4 +1,8 @@
 <script>
+  // @ts-nocheck
+  import FaTelegramPlane from "svelte-icons/fa/FaTelegramPlane.svelte";
+  import FaEnvelope from "svelte-icons/fa/FaEnvelope.svelte";
+  import FaCommentAlt from "svelte-icons/fa/FaCommentAlt.svelte";
 </script>
 
 <main>
@@ -12,44 +16,65 @@
         </p>
       </div>
       <div class="contact-form">
-        <div class="contact-content">
-          <h4>Your Name:</h4>
-          <input type="text" />        
-          <h4>Your Email:</h4>
-          <input type="text" />
-          <h4>Your Message:</h4>
-          <textarea></textarea>
+        <div class="row">
+          <form
+            action="mailto:{import.meta.env.VITE_EMAIL}"
+            method="get"
+            enctype="text/plain"
+          >
+            <button type="submit">
+              <div class="ico">
+                <FaEnvelope />
+              </div>
+            </button>
+          </form>
+          <button>
+            <div class="ico">
+              <a href="https://t.me/{import.meta.env.VITE_TELEGRAM}" target="_blank">
+                <FaTelegramPlane />
+              </a>
+            </div>
+          </button>
+          <button>
+            <div class="ico">
+              <a href="https://wa.me/{import.meta.env.VITE_PHONE}" target="_blank">
+                <FaCommentAlt />
+              </a>
+            </div>
+          </button>
         </div>
-        <button>Send</button>
       </div>
     </div>
   </section>
 </main>
 
 <style>
+  .row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ico {
+    height: 25px;
+  }
   section {    
     margin-bottom: 50px;
     padding: 20px;
     grid-column: 1 / 13;
   }
-  .contact-content {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 100%;
-  }
-  
   .contact-form {
     display: flex;
     font-size: 1em;
-    width: 50%;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: var(--main-color);
     border-radius: 10px;
     padding: 20px;
+    margin-top: 20px;
   }
   .title {
     font-size: 2em;
@@ -57,30 +82,16 @@
     color: white;
     text-align: center;
   }
-  h4 {
-    font-weight: bold;
-    color: white;
-    font-family: "Courier New", Courier, monospace;
-    margin-bottom: 5px;
-  }
   button {
     width: 100px;
-    padding: 10px;
-    background-color: var(--accent-color);
+    padding: 10px;    
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
-  input {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  textarea {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 10px;
+  button:hover {
+    background-color: var(--accent-color-dark);
   }
   h2 {
     font-weight: bold;

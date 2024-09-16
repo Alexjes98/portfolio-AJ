@@ -5,10 +5,10 @@
 <nav class="top-nav-bar">
     <a href="#presentation">Home</a>
     <a href="#what-i-do">What I Do</a>
+    <a href="#projects-list">Projects</a>
     <a href="#about-me">About Me</a>
     <a href="#journey-resume">Journey</a>
     <a href="#skills">Skills</a>
-    <a href="#projects-list">Projects</a>
     <a href="#contact">Contact</a>
 </nav>
 

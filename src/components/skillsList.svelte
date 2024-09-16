@@ -98,7 +98,7 @@
 
 <style>
   section {
-    margin-bottom: 7000px;
+    margin-bottom: 8000px;
     padding: 20px;
   }
   .skill-item {
