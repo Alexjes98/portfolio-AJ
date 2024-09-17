@@ -43,7 +43,7 @@
   </div>
   <div>
     {#if show}
-      <div class="grid grid-cols-4 grid-rows-1">
+      <div class="column">
         <div style="margin-bottom: 15px;" class="col-span-4 row-span-1">
           <b>
             {#each technologies as technologie}
@@ -51,20 +51,7 @@
             {/each}
           </b>
         </div>
-        <div class="col-span-1 row-span-1 p-2">
-          <p class="text-start">
-            {description}
-          </p>
-          <div class="links-row">
-            {#if prevId}
-              <a href={prevId}>Back</a>
-            {/if}
-            {#if nextId}
-              <a href={nextId}>Next</a>
-            {/if}
-          </div>
-        </div>
-        <div class="col-span-3 row-span-1">
+        <div class="row">
           <div
             class="relative w-full max-w-4x3 mx-auto overflow-hidden rounded-lg shadow-lg"
             style="height: {height};"
@@ -81,7 +68,6 @@
                   : 'none'};"
               />
             {/each}
-
             <button
               on:click={prevSlide}
               class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary z-10"
@@ -131,12 +117,28 @@
                 <button
                   on:click={() => (currentIndex = index)}
                   class="w-3 h-3 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                  class:bg-primary={index === currentIndex}
+                  class:bg-blue-700={index === currentIndex}
                   class:bg-gray-300={index !== currentIndex}
                   aria-label={`Go to slide ${index + 1}`}
                 ></button>
               {/each}
             </div>
+          </div>
+        </div>
+        <div class="column">
+          <p class="text-start">
+            {description}
+          </p>
+          <div class="links-row">
+            {#if prevId}
+              <a href={prevId}>Back</a>
+            {/if}
+            {#if !prevId || !nextId}
+              <div></div>
+            {/if}
+            {#if nextId}
+              <a href={nextId}>Next</a>
+            {/if}
           </div>
         </div>
       </div>
@@ -145,6 +147,15 @@
 </div>
 
 <style>
+  .row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .column{
+    display: flex;
+    flex-direction: column;
+  }
   .links-row {
     display: flex;
     font-weight: bold;
@@ -185,14 +196,7 @@
     background-color: var(--main-color);
     border-radius: 5px;
   }
-  @media only screen and (min-width: 768px) {
-    .project-element {
-      text-align: left;
-      background-color: var(--main-color);
-      border-radius: 5px;
-      margin-bottom: 3600px;
-    }
-    .project-element-header {
+  .project-element-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -201,5 +205,17 @@
       border-radius: 5px;
       padding: 10px;
     }
+
+    .project-element {
+      text-align: left;
+      background-color: var(--main-color);
+      border-radius: 5px;
+      margin-bottom: 4500px;
+    }
+  @media only screen and (min-width: 768px) {
+    .project-element {
+      margin-bottom: 3600px;
+    }
+    
   }
 </style>

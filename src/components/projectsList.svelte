@@ -13,9 +13,7 @@
       <a href="#freddaid">Start</a>
     </div>
     <div class="project-list">
-      <div style="height: 11100px; width: 50px; background-color: red;">
-        MARGIN
-      </div>
+      <div class="extend-container" />
       <ProjectItem
         id="freddaid"
         images={["clew.png", "clew1.png", "clew2.png"]}
@@ -122,6 +120,7 @@
     color: white;
     text-align: center;
     margin-bottom: 5000px;
+    margin-top: 100px;
   }
   .project-list {
     display: flex;
@@ -145,5 +144,15 @@
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     text-align: center;
+  }
+  .extend-container {
+    height: 13100px;
+    width: 50px;
+  }
+  @media only screen and (min-width: 768px) {
+    .extend-container {
+      height: 16100px;
+      width: 50px;
+    }
   }
 </style>

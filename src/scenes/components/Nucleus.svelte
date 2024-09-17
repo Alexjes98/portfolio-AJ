@@ -1,7 +1,7 @@
 <script>
   import { T, useTask } from "@threlte/core";  
 
-  const position = [-4, 1, -36];
+  const position = [1, 2, -36];
 
   let speed = 0;
   useTask((delta) => {
@@ -21,21 +21,21 @@
     <T.MeshToonMaterial color={coreNucleusColor} />
   </T.Mesh>
   <T.Mesh
-    position={[position[0], 0, position[2]]}
+    position={[position[0], position[1], position[2]]}
     rotation={[speed, speed, speed]}
   >
     <T.RingGeometry args={[3, 4, 8, 8, 0]} />
     <T.MeshToonMaterial color={coreNucleusColor} />
   </T.Mesh>
   <T.Mesh
-    position={[position[0], 0, position[2]]}
+    position={[position[0], position[1], position[2]]}
     rotation={[speed, 0, speed * 2]}
   >
     <T.RingGeometry args={[3, 4, 8, 8, 0]} />
     <T.MeshPhysicalMaterial color={coreNucleusColor} />
   </T.Mesh>
   <T.Mesh
-    position={[position[0], 0, position[2]]}
+    position={[position[0], position[1], position[2]]}
     rotation={[-speed, 0, speed]}
   >
     <T.RingGeometry args={[3, 4, 8, 8, 0]} />

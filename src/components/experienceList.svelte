@@ -9,7 +9,12 @@
 <main>
   <section id="what-i-do">
     <div class="experience-container">
-      <h2>What I Do</h2>
+      <div
+      class="title"
+      >
+        <h2>What I Do</h2>
+
+      </div>
       <div class="experience-list">
         <div class="experience-item">
           <div class="icon">
@@ -65,8 +70,16 @@
 </main>
 
 <style>
+  .title {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
   section {
-    margin-bottom: 7000px;
+    margin-bottom: 1000px;
     padding: 20px;
     grid-column: 1 / 13;
   }

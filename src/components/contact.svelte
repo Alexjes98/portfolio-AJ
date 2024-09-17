@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;    
   }
   .ico {
     height: 25px;
@@ -75,6 +75,7 @@
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
+    margin-bottom: 100px;
   }
   .title {
     font-size: 2em;

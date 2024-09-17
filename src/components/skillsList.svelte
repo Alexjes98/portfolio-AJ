@@ -2,7 +2,7 @@
   let mainSkills = [
     {
       name: "React",
-      img: "https://camo.githubusercontent.com/d764e0d1b0bb6fc6e65157b3c98b9e203a13a17390309fad633406c3324dbfb2/68747470733a2f2f72656163746e61746976652e6465762f696d672f6865616465725f6c6f676f2e737667",
+      img: "/reactskill.png",
     },
     {
       name: "Express",
@@ -34,11 +34,11 @@
     },
     {
       name: "Flutter",
-      img: "https://camo.githubusercontent.com/a682e207ce9939518c8617c6340b1bf8b1769b30a9f1b45d27d67fd64af1d0f2/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f666c7574746572696f2f666c7574746572696f2d69636f6e2e737667",
+      img: "/flutter.png",
     },
     {
       name: "Firebase",
-      img: "https://camo.githubusercontent.com/3e5344a2965e786497ceb575ad67d2c64d412bb9683da05791edf424a0e40734/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f66697265626173652f66697265626173652d69636f6e2e737667",
+      img: "/firebase.png",
     },
     
   ];
