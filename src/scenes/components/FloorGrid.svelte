@@ -79,4 +79,12 @@
     <T.BoxGeometry args={[5, 2, 10]} />
     <T.MeshBasicMaterial color="black" } />
   </T.Mesh>
+  <T.Mesh position={[-40, -25, -50]} rotation={[0, 0, 0]}>
+    <T.BoxGeometry args={[5, 2, 10]} />
+    <T.MeshBasicMaterial color="black" } />
+  </T.Mesh>
+  <T.Mesh position={[-35, -25, -52]} rotation={[0, 0, 0]}>
+    <T.BoxGeometry args={[12, 2, 5]} />
+    <T.MeshBasicMaterial color="black" } />
+  </T.Mesh>
 </T.Group>
