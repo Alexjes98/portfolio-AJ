@@ -41,6 +41,7 @@
   let isMobile = window.innerWidth < 768;
 
   $: {
+    scrollY = Math.floor(scrollY);
     if (isMobile) {
       if (scrollY < maxScrollY) {
         cameraPosition = [
