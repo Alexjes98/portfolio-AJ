@@ -8,7 +8,7 @@ import TopNavBar from "./components/common/topNavBar.svelte";</script>
 <Layout>
   <TopNavBar></TopNavBar>  
   <Router>
-    <Route path="/" component="{Home}"></Route>
-    <Route path="/my-projects" component="{MyProjects}"></Route>
+    <Route path="/" component={Home}></Route>
+    <Route path="/my-projects" component={MyProjects}></Route>
   </Router>
 </Layout>

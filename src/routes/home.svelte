@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   import { Canvas } from "@threlte/core";
 
   import HomeScene from "../scenes/homeScene.svelte";

@@ -13,7 +13,6 @@
       class="title"
       >
         <h2>What I Do</h2>
-
       </div>
       <div class="experience-list">
         <div class="experience-item">
@@ -75,8 +74,7 @@
     font-weight: bold;
     color: white;
     text-align: center;
-    margin-bottom: 100px;
-    margin-top: 100px;
+    margin-bottom: 100px;    
   }
   section {
     margin-bottom: 1000px;
@@ -104,8 +102,7 @@
     color: white;
     margin-bottom: 10px;
   }
-  .experience-container {
-    margin-top: 80px;
+  .experience-container {    
     width: 100%;
   }
 

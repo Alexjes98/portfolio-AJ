@@ -2,13 +2,15 @@
   import Model from "../../gear.svelte";
 
   import { T, useTask, useThrelte } from "@threlte/core";
-  import { OrbitControls, interactivity } from "@threlte/extras";  
-  import { MeshLineGeometry, MeshLineMaterial } from "@threlte/extras";
+  import { OrbitControls, interactivity } from "@threlte/extras";
   import { Vector3, CatmullRomCurve3, Color } from "three";
-  
+
+  import { Suspense, Text } from "@threlte/extras";
+
   import Box from "./components/Box.svelte";
   import Gear from "./components/Gear.svelte";
   import Nucleus from "./components/Nucleus.svelte";
+  import FloorGrid from "./components/FloorGrid.svelte";
 
   const curve = new CatmullRomCurve3([
     new Vector3(0, 0, 0),
@@ -23,7 +25,7 @@
     new Vector3(31, 0, -30),
     new Vector3(14, 0, 60),
   ]);
-  const maxScrollY = 100000;  
+  const maxScrollY = 100000;
   const points = curve.getPoints(maxScrollY);
 
   interactivity();
@@ -32,184 +34,6 @@
   useTask((delta) => {
     rotation += delta;
   });
-
-  class FallingSphere {
-    /**
-     * @param {any} args
-     * @param {any} position
-     * @param {any} rotation
-     * @param {number} initialPos
-     * @param {number} speed
-     */
-    constructor(args, position, rotation, initialPos, speed) {
-      this.args = args;
-      this.position = position;
-      this.rotation = rotation;
-      this.initialPos = initialPos;
-      this.speed = speed;
-    }
-  }
-
-  useTask((delta) => {    
-    for (let i = 0; i < fallingCubes.length; i++) {
-      if (fallingCubes[i]) {
-        if (fallingCubes[i]) {
-          fallingCubes[i].position[0] += delta * fallingCubes[i].speed;
-          fallingCubes[i].position[1] =
-            4 * Math.sin(delta * fallingCubes[i].position[0]);
-        }
-      }
-      if (fallingCubes[i].position[0] > 800) {
-        fallingCubes[i].position[0] = fallingCubes[i].initialPos;
-      }
-    }
-  });
-  const values = [
-    //initial pos is x
-    {
-      args: [0.2, 5],
-      position: [-80, 0, -4],
-      rotation: [0, 0.1, 0],
-      initialPos: -80,
-      speed: 19,
-    },
-    {
-      args: [0.1, 22],
-      position: [-150, -2, 2],
-      rotation: [0, 0.1, 0],
-      initialPos: -150,
-      speed: 22,
-    },
-    {
-      args: [0.2, 22],
-      position: [-66, 0, -2],
-      rotation: [0, 0.1, 0],
-      initialPos: -66,
-      speed: 43,
-    },
-    {
-      args: [0.1, 22],
-      position: [-190, -4, -2],
-      rotation: [0, 0.1, 0],
-      initialPos: -190,
-      speed: 18,
-    },
-    {
-      args: [0.2, 11],
-      position: [-60, 0, 1],
-      rotation: [0, 0.1, 0],
-      initialPos: -60,
-      speed: 16,
-    },
-    {
-      args: [0.1, 22],
-      position: [-160, -3, -5],
-      rotation: [0, 0.1, 0],
-      initialPos: -160,
-      speed: 23,
-    },
-    {
-      args: [0.1, 22],
-      position: [-260, 0, 10],
-      rotation: [0, 0.1, 0],
-      initialPos: -260,
-      speed: 73,
-    },
-    {
-      args: [0.2, 22],
-      position: [-360, -4, 10],
-      rotation: [0, 0.1, 0],
-      initialPos: -360,
-      speed: 90,
-    },
-    {
-      args: [0.1, 22],
-      position: [-260, -4, -10],
-      rotation: [0, 0.1, 0],
-      initialPos: -260,
-      speed: 90,
-    },
-    {
-      args: [0.2, 22],
-      position: [-260, -7, 0],
-      rotation: [0, 0.1, 0],
-      initialPos: -260,
-      speed: 90,
-    },
-    {
-      args: [0.1, 22],
-      position: [-560, -7, 38],
-      rotation: [0, 0.1, 0],
-      initialPos: -560,
-      speed: 80,
-    },
-    {
-      args: [0.2, 22],
-      position: [-560, 0, -25],
-      rotation: [0, 0.1, 0],
-      initialPos: -560,
-      speed: 100,
-    },
-    {
-      args: [0.2, 22],
-      position: [-560, 0, -45],
-      rotation: [0, 0.1, 0],
-      initialPos: -560,
-      speed: 120,
-    },
-    {
-      args: [0.2, 22],
-      position: [-260, -4, 65],
-      rotation: [0, 0.1, 0],
-      initialPos: -260,
-      speed: 80,
-    },
-    {
-      args: [0.1, 22],
-      position: [-660, -14, -65],
-      rotation: [0, 0.1, 0],
-      initialPos: -660,
-      speed: 120,
-    },
-    {
-      args: [0.1, 22],
-      position: [-560, -24, 13],
-      rotation: [0, 0.1, 0],
-      initialPos: -560,
-      speed: 120,
-    },
-    {
-      args: [0.1, 22],
-      position: [-560, -36, -13],
-      rotation: [0, 0.1, 0],
-      initialPos: -560,
-      speed: 100,
-    },
-    {
-      args: [0.1, 22],
-      position: [-400, -10, -13],
-      rotation: [0, 0.1, 0],
-      initialPos: -400,
-      speed: 300,
-    },
-    {
-      args: [0.1, 22],
-      position: [-320, -10, 33],
-      rotation: [0, 0.1, 0],
-      initialPos: -320,
-      speed: 100,
-    },
-  ];
-  const fallingCubes = values.map(
-    (value) =>
-      new FallingSphere(
-        value.args,
-        value.position,
-        value.rotation,
-        value.initialPos,
-        value.speed
-      )
-  );
 
   let cameraPosition = [0, 0, 0];
 
@@ -235,207 +59,242 @@
       }
     }
   }
-
-  $: console.log(scrollY);
-  $: console.log(cameraPosition);
 </script>
 
 <svelte:window bind:scrollY />
 
-<T.PerspectiveCamera
-  makeDefault
-  position={cameraPosition}
-  aspect={window.innerWidth / window.innerHeight}
-  near={0.1}
->
-  <OrbitControls enableDamping target={[0, 0, 0]} />
-</T.PerspectiveCamera>
-
-<!-- <T.DirectionalLight position={[0, 10, 0]} castShadow intensity={10} /> -->
-
-<!-- <T.GridHelper args={[100, 100]} /> -->
-
-<Model position={[0, -0.5, -1]} rotation={[Math.PI / 2, -rotation, 0]} />
-<Model position={[0.7, -0.5, -1]} rotation={[Math.PI / 2, rotation, 0]} />
-
-<T.Mesh receiveShadow position={[0, 0 + 4 * Math.sin(rotation) - 10, 10]}>
-  <T.CylinderGeometry args={[2, 2, 10, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[-3, 0 + 4 * Math.cos(rotation) - 10, 10]}>
-  <T.CylinderGeometry args={[2, 2, 10, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[-1, 0 + Math.cos(rotation), -1]}>
-  <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[-1, 0 + Math.sin(rotation), -2]}>
-  <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[1, 0 - Math.cos(rotation * 2), -2]}>
-  <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[0, 0 - Math.sin(rotation), -2]}>
-  <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<Box
-  position={[-1, 0, -1]}
-  color="black"
-  lights={[{ position: [1, 1, -1], intensity: 15 }]}
-/>
-<Box
-  position={[0, 0, -2]}
-  color="black"
-  geometry={[3.4, 1, 1]}
-  lights={[{ position: [1, 1, 2], intensity: 20 }]}
-/>
-<Box
-  position={[8, -10, 3]}
-  color="black"
-  geometry={[2, 12, 2]}
-  lights={[{ position: [1, 2, 1], intensity: 25 }]}
-/>
-<Box
-  position={[-32, -3, -20]}
-  color="black"
-  geometry={[2, 2, 5]}
-  lights={[{ position: [1, 2, 1], intensity: 25 }]}
-/>
-<Box
-  position={[-32, -9, 32]}
-  color="black"
-  geometry={[2, 8, 5]}
-  lights={[{ position: [3, 2, 2], intensity: 25 }]}
-/>
-<Box
-  position={[22, -4, -3.9]}
-  color="black"
-  geometry={[0.2, 6, 6]}
-  lights={[{ position: [2, 2, 2], intensity: 25 }]}
-/>
-<Box
-  position={[-5, 8, 9]}
-  color="black"
-  geometry={[0.2, 11, 9]}
-  lights={[{ position: [2, 4.5, 4], intensity: 105 }]}
-/>
-<Box
-  position={[-5, 12, -19]}
-  color="black"
-  geometry={[0.2, 11, 19]}
-  lights={[{ position: [3, 4.5, 7], intensity: 200 }]}
-/>
-<Gear
-  position={[0, 10, 0]}
-  rotation={[0, 0, 0]}
-  size={[2, 2, 2]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={4}
-/>
-<Gear
-  position={[1, 10, -3.7]}
-  rotation={[0, 0, 0]}
-  size={[8, 8, 8]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={-1}
-/>
-<Gear
-  position={[4.5, 10, 14]}
-  rotation={[0, 0, 0]}
-  size={[6, 6, 6]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={5}
-/>
-<Gear
-  position={[2, 3, 9]}
-  rotation={[0, 0, 0]}
-  size={[13, 13, 13]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={-5}
-/>
-<Gear
-  position={[-4, 6, -10]}
-  rotation={[Math.PI / 2, 0, 0]}
-  size={[16, 16, 16]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={0.5}
-/>
-<Gear
-  position={[-10, 12, 4]}
-  rotation={[0, 0, Math.PI / 2]}
-  orientation={0}
-  size={[38, 38, 38]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={-0.1}
-/>
-<Gear
-  position={[9, 1, 1]}
-  rotation={[Math.PI / 4, 0, Math.PI / 2]}
-  orientation={0}
-  size={[48, 48, 48]}
-  lights={[]}
-  isActive={true}
-  rotationSpeed={-0.03}
-/>
-
-<T.Mesh receiveShadow position={[2, 0, 9]}>
-  <T.CylinderGeometry args={[1.1, 1.1, 100, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[1, 30, -3.7]}>
-  <T.CylinderGeometry args={[0.6, 0.6, 40, 15]} />
-  <T.MeshStandardMaterial color="black" />
-</T.Mesh>
-<!-- floor -->
-<T.Mesh receiveShadow position={[0, -70, 0]}>
-  <T.BoxGeometry args={[800, 0, 800]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
-<!-- walls -->
-<T.Mesh receiveShadow position={[0, 0, -150]}>
-  <T.BoxGeometry args={[900, 200, 1]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[0, 0, 60]}>
-  <T.BoxGeometry args={[800, 200, 10]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[-300, 0, 0]}>
-  <T.BoxGeometry args={[10, 400, 400]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
-<T.Mesh receiveShadow position={[800, 0, 0]}>
-  <T.BoxGeometry args={[10, 400, 600]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
-<!-- ceiling -->
-<T.Mesh receiveShadow position={[0, 80, 0]}>
-  <T.BoxGeometry args={[800, 10, 800]} />
-  <T.MeshStandardMaterial color="white" />
-</T.Mesh>
-
-{#each fallingCubes as cube}
-  <T.Mesh
-    position={[cube.position[0], cube.position[1], cube.position[2]]}
-    rotation.y={rotation}
+<Suspense final>
+  <T.PointLight
+    position={[0, -22, -30]}
+    {rotation}
+    intensity={1000}
+    color={"purple"}
+  />
+  <T.PointLight
+    position={[0, -23, 0]}
+    {rotation}
+    intensity={1000}
+    color={"purple"}
+  />
+  <T.PointLight
+    position={[-40, -23, -40]}
+    {rotation}
+    intensity={1000}
+    color={"blue"}
+  />
+  <T.PerspectiveCamera
+    makeDefault
+    position={cameraPosition}
+    aspect={window.innerWidth / window.innerHeight}
+    near={0.1}
   >
-    <T.PointLight position={[0, 0, 0]} intensity={500} color="blue" />
-    <T.SphereGeometry args={cube.args} />
-    <T.MeshBasicMaterial color="blue" />
-  </T.Mesh>
-{/each}
+    <OrbitControls enableDamping target={[0, 0, 0]} />
+  </T.PerspectiveCamera>
+  <Text
+    position.z={-8}
+    slot="fallback"
+    text="Loading"
+    fontSize={1}
+    color="white"
+    anchorX="50%"
+    anchorY="50%"
+    on:create={({ ref }) => {
+      ref.lookAt(-40, 25, 40);
+    }}
+  />
+  <Text
+    slot="error"
+    position.z={-8}
+    let:errors
+    text={errors.map((e) => e).join(", ")}
+    fontSize={1}
+    color="white"
+    anchorX="50%"
+    anchorY="50%"
+    on:create={({ ref }) => {
+      ref.lookAt(-40, 25, 40);
+    }}
+  />
 
-<!-- <ProjectItem
+  <T.Mesh
+    receiveShadow
+    position={[0, -0.5, -1]}
+    rotation={[Math.PI / 2, -rotation, 0]}
+  >
+    <T.CylinderGeometry args={[0.09,0.09, 1, 12]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <Model position={[0, -0.5, -1]} rotation={[Math.PI / 2, -rotation, 0]} />
+  <T.Mesh
+    receiveShadow
+    position={[0.7, -0.5, -1]}
+    rotation={[Math.PI / 2, -rotation, 0]}
+  >
+    <T.CylinderGeometry args={[0.09,0.09, 1, 12]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <Model position={[0.7, -0.5, -1]} rotation={[Math.PI / 2, rotation, 0]} />
+
+  <T.Mesh receiveShadow position={[0, 0 + 4 * Math.sin(rotation) - 10, 10]}>
+    <T.CylinderGeometry args={[2, 2, 10, 15]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[-3, 0 + 4 * Math.cos(rotation) - 10, 10]}>
+    <T.CylinderGeometry args={[2, 2, 10, 15]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[-1, 0 + Math.cos(rotation), -1]}>
+    <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[-1, 0 + Math.sin(rotation), -2]}>
+    <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[1, 0 - Math.cos(rotation * 2), -2]}>
+    <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[0, 0 - Math.sin(rotation), -2]}>
+    <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
+    <T.MeshStandardMaterial color="black" />
+  </T.Mesh>
+  <Box
+    position={[-1, 0, -1]}
+    color="black"
+    lights={[{ position: [1, 1, -1], intensity: 15 }]}
+  />
+  <Box
+    position={[0, 0, -2]}
+    color="black"
+    geometry={[3.4, 1, 1]}
+    lights={[{ position: [1, 1, 2], intensity: 20 }]}
+  />
+  <Box
+    position={[8, -10, 3]}
+    color="black"
+    geometry={[2, 12, 2]}
+    lights={[{ position: [1, 2, 1], intensity: 25 }]}
+  />
+  <Box
+    position={[-32, -3, -20]}
+    color="black"
+    geometry={[2, 2, 5]}
+    lights={[{ position: [1, 2, 1], intensity: 25 }]}
+  />
+  <Box
+    position={[-32, -9, 32]}
+    color="black"
+    geometry={[2, 8, 5]}
+    lights={[{ position: [3, 2, 2], intensity: 25 }]}
+  />
+  <Box
+    position={[22, -4, -3.9]}
+    color="black"
+    geometry={[0.2, 6, 6]}
+    lights={[{ position: [2, 2, 2], intensity: 25 }]}
+  />
+  <Box
+    position={[-5, 8, 9]}
+    color="black"
+    geometry={[0.2, 11, 9]}
+    lights={[{ position: [2, 4.5, 4], intensity: 105 }]}
+  />
+  <Box
+    position={[-5, 12, -19]}
+    color="black"
+    geometry={[0.2, 11, 19]}
+    lights={[{ position: [3, 4.5, 7], intensity: 200 }]}
+  />
+  <Gear
+    position={[0, 10, 0]}
+    rotation={[0, 0, 0]}
+    size={[2, 2, 2]}
+    isActive={true}
+    rotationSpeed={4}
+  />
+  <Gear
+    position={[1, 10, -3.7]}
+    rotation={[0, 0, 0]}
+    size={[8, 8, 8]}
+    isActive={true}
+    rotationSpeed={-1}
+  />
+  <Gear
+    position={[4.5, 10, 14]}
+    rotation={[0, 0, 0]}
+    size={[6, 6, 6]}
+    isActive={true}
+    rotationSpeed={5}
+  />
+  <Gear
+    position={[2, 3, 9]}
+    rotation={[0, 0, 0]}
+    size={[13, 13, 13]}
+    isActive={true}
+    rotationSpeed={-5}
+  />
+  <Gear
+    position={[-4, 6, -10]}
+    rotation={[Math.PI / 2, 0, 0]}
+    size={[16, 16, 16]}
+    isActive={true}
+    rotationSpeed={0.5}
+  />
+  <Gear
+    position={[-10, 12, 4]}
+    rotation={[0, 0, Math.PI / 2]}
+    orientation={0}
+    size={[38, 38, 38]}
+    isActive={true}
+    rotationSpeed={-0.1}
+  />
+  <Gear
+    position={[9, 1, 1]}
+    rotation={[Math.PI / 4, 0, Math.PI / 2]}
+    orientation={0}
+    size={[48, 48, 48]}
+    isActive={true}
+    rotationSpeed={-0.03}
+  />
+
+  <T.Mesh receiveShadow position={[2, 0, 9]}>
+    <T.CylinderGeometry args={[1.1, 1.1, 100, 15]} />
+    <T.MeshPhysicalMaterial color="black" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[1, 30, -3.7]}>
+    <T.CylinderGeometry args={[0.6, 0.6, 40, 15]} />
+    <T.MeshPhysicalMaterial color="black" />
+  </T.Mesh>
+  <!-- floor -->
+  <T.Mesh receiveShadow position={[0, -25, 0]}>
+    <T.BoxGeometry args={[800, 1, 800]} />
+    <T.MeshPhysicalMaterial color="white" />
+  </T.Mesh>
+  <!-- walls -->
+  <T.Mesh receiveShadow position={[0, 0, -100]}>
+    <T.BoxGeometry args={[900, 200, 1]} />
+    <T.MeshPhysicalMaterial color="white" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[0, 0, 30]}>
+    <T.BoxGeometry args={[800, 200, 10]} />
+    <T.MeshStandardMaterial color="white" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[-80, 0, 0]}>
+    <T.BoxGeometry args={[10, 400, 400]} />
+    <T.MeshStandardMaterial color="white" />
+  </T.Mesh>
+  <T.Mesh receiveShadow position={[40, 0, 0]}>
+    <T.BoxGeometry args={[10, 400, 600]} />
+    <T.MeshStandardMaterial color="white" />
+  </T.Mesh>
+  <!-- ceiling -->
+  <T.Mesh receiveShadow position={[0, 40, 0]}>
+    <T.BoxGeometry args={[800, 1, 800]} />
+    <T.MeshStandardMaterial color="white" />
+  </T.Mesh>
+
+  <!-- <ProjectItem
   position={[58, 0, -10]}
   rotation={[0, Math.PI - 3 / 2, 0]}
   geometry={[20, 11.5, 1]}
@@ -508,9 +367,9 @@
     { url: "s3.jpeg" },
   ]}
 /> -->
-
-<!-- Nucleos part -->
-<Nucleus />
+  <Nucleus />
+  <FloorGrid />
+</Suspense>
 
 <!-- Home Page
  //A brief introduction about yourself
