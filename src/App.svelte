@@ -6,7 +6,7 @@ import MyProjects from "./routes/myProjects.svelte";
 import TopNavBar from "./components/common/topNavBar.svelte";</script>
 
 <Layout>
-  <TopNavBar></TopNavBar>  
+  <TopNavBar/>
   <Router>
     <Route path="/" component={Home}></Route>
     <Route path="/my-projects" component={MyProjects}></Route>

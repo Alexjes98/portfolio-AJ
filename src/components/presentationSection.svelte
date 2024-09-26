@@ -29,6 +29,7 @@
 
 <style>
   section {
+    margin-top: 60px;
     margin-bottom: 700px;
     padding: 20px;
     grid-column: 1 / 13;

@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
+  import { onMount } from 'svelte';  
   import { Canvas } from "@threlte/core";
 
   import HomeScene from "../scenes/homeScene.svelte";
@@ -15,7 +14,8 @@
 
 <main>
   <div class="canvas">
-    <Canvas>
+    <Canvas    
+    >
       <HomeScene />
     </Canvas>
   </div>

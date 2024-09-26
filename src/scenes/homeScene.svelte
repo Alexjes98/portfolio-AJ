@@ -60,6 +60,7 @@
       }
     }
   }
+  const mainLightIntensity = isMobile ? 700 : 1000;
 </script>
 
 <svelte:window bind:scrollY />
@@ -68,19 +69,19 @@
   <T.PointLight
     position={[0, -22, -30]}
     {rotation}
-    intensity={1000}
+    intensity={mainLightIntensity}
     color={"purple"}
   />
   <T.PointLight
     position={[0, -23, 0]}
     {rotation}
-    intensity={1000}
+    intensity={mainLightIntensity}
     color={"purple"}
   />
   <T.PointLight
     position={[-40, -23, -40]}
     {rotation}
-    intensity={1000}
+    intensity={mainLightIntensity}
     color={"blue"}
   />
   <T.PerspectiveCamera
@@ -136,29 +137,31 @@
   </T.Mesh>
   <Model position={[0.7, -0.5, -1]} rotation={[Math.PI / 2, rotation, 0]} />
 
+  {#if !isMobile}
   <T.Mesh receiveShadow position={[0, 0 + 4 * Math.sin(rotation) - 10, 10]}>
     <T.CylinderGeometry args={[2, 2, 10, 15]} />
-    <T.MeshStandardMaterial color="black" />
+    <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <T.Mesh receiveShadow position={[-3, 0 + 4 * Math.cos(rotation) - 10, 10]}>
     <T.CylinderGeometry args={[2, 2, 10, 15]} />
-    <T.MeshStandardMaterial color="black" />
+    <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <T.Mesh receiveShadow position={[-1, 0 + Math.cos(rotation), -1]}>
     <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
-    <T.MeshStandardMaterial color="black" />
+    <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
+  {/if}
   <T.Mesh receiveShadow position={[-1, 0 + Math.sin(rotation), -2]}>
     <T.CylinderGeometry args={[0.2, 0.2, 1, 15]} />
-    <T.MeshStandardMaterial color="black" />
+    <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <T.Mesh receiveShadow position={[1, 0 - Math.cos(rotation * 2), -2]}>
     <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
-    <T.MeshStandardMaterial color="black" />
+    <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <T.Mesh receiveShadow position={[0, 0 - Math.sin(rotation), -2]}>
     <T.CylinderGeometry args={[0.2, 0.2, 0.9, 15]} />
-    <T.MeshStandardMaterial color="black" />
+    <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <Box
     position={[-1, 0, -1]}
@@ -169,44 +172,48 @@
     position={[0, 0, -2]}
     color="black"
     geometry={[3.4, 1, 1]}
-    lights={[{ position: [1, 1, 2], intensity: 20 }]}
+    lights={[{ position: [1, 1, 2], intensity: 5 }]}
   />
   <Box
     position={[8, -10, 3]}
     color="black"
     geometry={[2, 12, 2]}
-    lights={[{ position: [1, 2, 1], intensity: 25 }]}
+    lights={[{ position: [1, 2, 1], intensity: 5 }]}
   />
   <Box
     position={[-32, -3, -20]}
     color="black"
     geometry={[2, 2, 5]}
-    lights={[{ position: [1, 2, 1], intensity: 25 }]}
+    lights={[{ position: [1, 2, 1], intensity: 15 }]}
   />
   <Box
     position={[-32, -9, 32]}
     color="black"
     geometry={[2, 8, 5]}
-    lights={[{ position: [3, 2, 2], intensity: 25 }]}
+    lights={[{ position: [3, 2, 2], intensity: 5 }]}
   />
+  {#if !isMobile}
   <Box
     position={[22, -4, -3.9]}
     color="black"
     geometry={[0.2, 6, 6]}
-    lights={[{ position: [2, 2, 2], intensity: 25 }]}
+    lights={[{ position: [2, 2, 2], intensity: 5 }]}
   />
   <Box
     position={[-5, 8, 9]}
     color="black"
     geometry={[0.2, 11, 9]}
-    lights={[{ position: [2, 4.5, 4], intensity: 105 }]}
+    lights={[{ position: [2, 4.5, 4], intensity: 2 }]}
   />
   <Box
     position={[-5, 12, -19]}
     color="black"
     geometry={[0.2, 11, 19]}
-    lights={[{ position: [3, 4.5, 7], intensity: 200 }]}
+    lights={[{ position: [3, 4.5, 7], intensity: 2 }]}
   />
+  {/if}
+  {#if !isMobile}
+  
   <Gear
     position={[0, 10, 0]}
     rotation={[0, 0, 0]}
@@ -235,6 +242,7 @@
     isActive={true}
     rotationSpeed={-5}
   />
+  {/if}
   <Gear
     position={[-4, 6, -10]}
     rotation={[Math.PI / 2, 0, 0]}
@@ -242,6 +250,7 @@
     isActive={true}
     rotationSpeed={0.5}
   />
+  <T.PointLight position={[10, 5,10 ]} intensity={25} color="purple" />
   <Gear
     position={[-10, 12, 4]}
     rotation={[0, 0, Math.PI / 2]}
@@ -273,25 +282,8 @@
     <T.MeshPhysicalMaterial color="white" />
   </T.Mesh>
   <!-- walls -->
-  <T.Mesh receiveShadow position={[0, 0, -100]}>
-    <T.BoxGeometry args={[900, 200, 1]} />
-    <T.MeshPhysicalMaterial color="white" />
-  </T.Mesh>
-  <T.Mesh receiveShadow position={[0, 0, 30]}>
-    <T.BoxGeometry args={[800, 200, 10]} />
-    <T.MeshStandardMaterial color="white" />
-  </T.Mesh>
-  <T.Mesh receiveShadow position={[-80, 0, 0]}>
-    <T.BoxGeometry args={[10, 400, 400]} />
-    <T.MeshStandardMaterial color="white" />
-  </T.Mesh>
   <T.Mesh receiveShadow position={[40, 0, 0]}>
     <T.BoxGeometry args={[10, 400, 600]} />
-    <T.MeshStandardMaterial color="white" />
-  </T.Mesh>
-  <!-- ceiling -->
-  <T.Mesh receiveShadow position={[0, 40, 0]}>
-    <T.BoxGeometry args={[800, 1, 800]} />
     <T.MeshStandardMaterial color="white" />
   </T.Mesh>
 
@@ -368,7 +360,7 @@
     { url: "s3.jpeg" },
   ]}
 /> -->
-  <Nucleus />
+  <Nucleus isMobile={isMobile} />
   <FloorGrid />
 </Suspense>
 
