@@ -2,6 +2,8 @@
   // @ts-nocheck
 
   import AboutImg from "../assets/about_img.png";
+  import AIPractitoner from "../assets/aws-certified-ai-practitioner.png";
+  import CloudPractitoner from "../assets/aws-certified-cloud-practitioner.png";
 
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import FaLinkedin from "svelte-icons/fa/FaLinkedin.svelte";
@@ -37,12 +39,18 @@
               </a>
             </div>
             <div class="icon">
-              <a href="https://www.linkedin.com/in/alejandro-lopez-9b3462179/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/alejandro-lopez-9b3462179/"
+                target="_blank"
+              >
                 <FaLinkedin />
               </a>
             </div>
             <div class="icon">
-              <a href="https://www.instagram.com/alexandre_dupre98/" target="_blank">
+              <a
+                href="https://www.instagram.com/alexandre_dupre98/"
+                target="_blank"
+              >
                 <FaInstagram />
               </a>
             </div>
@@ -53,14 +61,71 @@
         </div>
       </div>
     </div>
+    <div class="certifications">
+      <div class="certification">
+        <img src={CloudPractitoner} alt="Cloud Practitoner" />
+        <div>
+          <h2>Issued by AWS on 2022</h2>
+        </div>
+      </div>
+      <div class="certification">
+        <img src={AIPractitoner} alt="AI Practitoner" />
+        <h2>Issued by AWS on 2024</h2>
+      </div>
+    </div>
   </section>
 </main>
 
 <style>
   section {
-    margin-bottom: 7000px;
+    margin-bottom: 6000px;
     grid-column: 1 / 13;
   }
+  @keyframes fancy-in {
+    /* card entry */
+    0% {
+      transform: translateX(90%) scale(1);
+      opacity: 0;
+    }
+    /* card on stage */
+    20%,
+    80% {
+      opacity: 1;
+      transform: none;
+    }
+    /* card exit */
+    100% {
+      transform: translateX(10);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .certification {
+        animation: fancy-in 1s both;
+        animation-timeline: view();
+        animation-range: contain;
+      }
+    }
+  }
+  .certifications {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 50px;
+  }
+  .certification {
+    width: 350px;
+    height: 250px;
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .decoration-icon {
     position: absolute;
     z-index: 0;
@@ -75,7 +140,7 @@
     position: absolute;
     z-index: 2;
     width: 10%;
-    bottom: 0;    
+    bottom: 0;
     height: 33px;
     background-color: var(--main-color);
   }
@@ -119,7 +184,7 @@
     margin-right: 20px;
   }
 
-  .row{
+  .row {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -142,11 +207,12 @@
     padding: 20px;
   }
   h2 {
+    font-size: 2em;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     text-align: center;
   }
-  
+
   .col {
     display: flex;
     flex-direction: column;
@@ -176,11 +242,11 @@
     }
 
     .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex: 2;
-  }
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      flex: 2;
+    }
   }
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';  
+  
   import { Canvas } from "@threlte/core";
 
   import HomeScene from "../scenes/homeScene.svelte";
@@ -10,12 +10,28 @@
   import SkillsList from "../components/skillsList.svelte";
   import ProjectsList from "../components/projectsList.svelte";
   import Contact from "../components/contact.svelte";
+
+  window.onscroll = function () {
+    var docHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    var scrollPosition =
+      window.screenY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    var scrollPercentage = (scrollPosition / docHeight) * 100;
+
+    var element = document.getElementById("progressBar") || document.createElement("div");
+
+    element.style.width = scrollPercentage + "%";
+  };
 </script>
 
 <main>
+  <div id="progressBar"></div>
   <div class="canvas">
-    <Canvas    
-    >
+    <Canvas>
       <HomeScene />
     </Canvas>
   </div>
@@ -31,6 +47,15 @@
 </main>
 
 <style>
+  #progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background: blue;
+    z-index: 100;
+  }
   .canvas {
     position: fixed;
     z-index: -1;
