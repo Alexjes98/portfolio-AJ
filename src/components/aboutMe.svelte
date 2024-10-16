@@ -10,6 +10,7 @@
   import FaInstagram from "svelte-icons/fa/FaInstagram.svelte";
 
   import FaStar from "svelte-icons/fa/FaStar.svelte";
+  import SectionJump from "./common/sectionJump.svelte";
 </script>
 
 <main>
@@ -73,6 +74,7 @@
         <h2>Issued by AWS on 2024</h2>
       </div>
     </div>
+    <SectionJump href="#journey-resume" />
   </section>
 </main>
 

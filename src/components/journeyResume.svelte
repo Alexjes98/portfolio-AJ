@@ -1,4 +1,6 @@
 <script>
+  import SectionJump from "./common/sectionJump.svelte";
+
   let education = [
     {
       date: "2016-2023",
@@ -64,6 +66,7 @@
         {/each}
       </div>
     </div>
+    <SectionJump href="#skills" />
   </section>
 </main>
 
@@ -81,6 +84,24 @@
     padding: 20px;
     margin: 30px;
     width: 100%;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .experience-item {
+        animation: fadeIn 0.5s ease;
+        animation-timeline: view();
+      }
+    }
   }
 
   .journey-container {
@@ -102,6 +123,7 @@
     margin-bottom: 5px;
   }
   h2 {
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
     color: white;

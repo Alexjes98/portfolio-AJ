@@ -4,14 +4,14 @@
   import FaMobileAlt from "svelte-icons/fa/FaMobileAlt.svelte";
   import FaCloud from "svelte-icons/fa/FaCloud.svelte";
   import FaCode from "svelte-icons/fa/FaCode.svelte";
+
+  import SectionJump from "./common/sectionJump.svelte";
 </script>
 
 <main>
   <section id="what-i-do">
     <div class="experience-container">
-      <div
-      class="title"
-      >
+      <div class="title">
         <h2>What I Do</h2>
       </div>
       <div class="experience-list">
@@ -65,6 +65,7 @@
         </div>
       </div>
     </div>
+    <SectionJump href="#projects-list" />
   </section>
 </main>
 
@@ -74,7 +75,7 @@
     font-weight: bold;
     color: white;
     text-align: center;
-    margin-bottom: 100px;    
+    margin-bottom: 50px;
   }
   section {
     margin-bottom: 1000px;
@@ -102,7 +103,7 @@
     color: white;
     margin-bottom: 10px;
   }
-  .experience-container {    
+  .experience-container {
     width: 100%;
   }
 
@@ -120,5 +121,32 @@
     border: 5px solid #ccc;
     border-radius: 15px;
     width: 350px;
+  }
+  @keyframes fancy-in {
+    /* card entry */
+    0% {
+      transform: translateX(90%) scale(1);
+      opacity: 0;
+    }
+    /* card on stage */
+    20%,
+    80% {
+      opacity: 1;
+      transform: none;
+    }
+    /* card exit */
+    100% {
+      transform: translateX(10);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .experience-item {
+        animation: fancy-in 1s both;
+        animation-timeline: view();
+        animation-range: contain;
+      }
+
+    }
   }
 </style>

@@ -3,6 +3,7 @@
 
   import FaInfo from "svelte-icons/fa/FaInfo.svelte";
   import ProjectItem from "./projectItem.svelte";
+  import SectionJump from "./common/sectionJump.svelte";
   let show = false;
 </script>
 
@@ -18,6 +19,7 @@
         id="freddaid"
         images={["clew.png", "clew1.png", "clew2.png"]}
         nextId="#sales-factory"
+        prevId="#what-i-do"
         title="Sales Factory - FreddAid"
         description="I worked for Sales Factory developing a chatbot that uses RAG (Retrieval Augmented Generation) to answer questions about different Sales Factory Clients data and services.
         The chatbot is deployed in Azure and uses Azure functions to run a Langchain agent in python that uses OpenAI to generate answers.
@@ -94,6 +96,7 @@
         id="progressive-label"
         images={["progressive.png", "progressive1.png", "progressive2.png"]}
         prevId="#little-bellies"
+        nextId="#about-me"
         title="Progressive Label"
         description="I worked for Progressive Label developing Cypress tests for the Frontend and Jest test for the backend server.
         The web app consists of a service to generate labels for products and manage the creation process for those labels.
@@ -108,7 +111,7 @@
           "Cognito",
           "S3",
         ]}
-      />
+      />      
     </div>
   </section>
 </main>

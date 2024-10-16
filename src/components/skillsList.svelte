@@ -1,4 +1,6 @@
 <script>
+  import SectionJump from "./common/sectionJump.svelte";
+
   let mainSkills = [
     {
       name: "React",
@@ -7,7 +9,7 @@
     {
       name: "Express",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
-    },    
+    },
     {
       name: "Node",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
@@ -40,7 +42,6 @@
       name: "Firebase",
       img: "/firebase.png",
     },
-    
   ];
 
   let secondarySkills = [
@@ -59,7 +60,7 @@
     {
       name: "Svelte",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/svelte/svelte-original-wordmark.svg",
-    },    
+    },
     {
       name: "Docker",
       img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
@@ -85,23 +86,44 @@
     <h2>I also know about</h2>
     <div class="row">
       {#each secondarySkills as skill}
-        <div class="skill-item
-        ">
-          <img src={`${skill.img
-          }`} alt={skill.name} />
+        <div
+          class="skill-item
+        "
+        >
+          <img src={`${skill.img}`} alt={skill.name} />
           <h3>{skill.name}</h3>
         </div>
       {/each}
     </div>
+    <SectionJump href="#contact" />
   </section>
 </main>
 
 <style>
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-600px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   section {
     margin-bottom: 8000px;
     padding: 20px;
   }
-  .skill-item {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .skill-item {
+        animation: fade-in-left 2s ease;
+        animation-timeline: view();
+      }
+    }
+  }
+  .skill-item {    
     width: 200px;
     margin: 50px;
     padding: 20px;
