@@ -12,6 +12,12 @@
       title: "AWS Certified Cloud Practitioner",
       institution: "AWS Training and Certification",
     },
+    {
+      date: "2024-2024",
+      location: "Táchira, Venezuela",
+      title: "AWS Certified AI Practitioner",
+      institution: "AWS Training and Certification",
+    },
   ];
 
   let experience = [
