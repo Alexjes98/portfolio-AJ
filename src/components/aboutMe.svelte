@@ -55,8 +55,15 @@
                 <FaInstagram />
               </a>
             </div>
-            <div class="download-container">
-              <button> Download CV </button>
+            <div class="resume-button">
+              <a
+                href="/CV.pdf"
+                target="_blank"
+                download
+                class="download-button"
+              >
+                Resume
+              </a>
             </div>
           </div>
         </div>
@@ -108,6 +115,21 @@
         animation-range: contain;
       }
     }
+  }
+  .download-button {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .resume-button {
+    width: 100%;
+    height: 54px;
+    color: white;
+    margin: 0;
   }
   .certifications {
     display: flex;
@@ -182,8 +204,6 @@
     align-self: flex-end;
     width: 100%;
     height: 54px;
-    margin-bottom: 70px;
-    margin-right: 20px;
   }
 
   .row {
