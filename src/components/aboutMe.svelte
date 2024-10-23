@@ -23,7 +23,7 @@
       <h2>About Me</h2>
       <div class="row">
         <div class="avatar">
-          <img src={AboutImg} alt="profile" aria-label="profile" />
+          <img src={AboutImg} alt="profile" aria-label="profile" loading="lazy" />
         </div>
         <div class="col">
           <h1>Code Architect, Problem Solver</h1>
