@@ -66,6 +66,7 @@
                   : 0}; pointer-events: {index === currentIndex
                   ? 'auto'
                   : 'none'};"
+                loading="lazy"
               />
             {/each}
             <button
@@ -147,12 +148,12 @@
 </div>
 
 <style>
-  .row{
+  .row {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  .column{
+  .column {
     display: flex;
     flex-direction: column;
   }
@@ -197,25 +198,24 @@
     border-radius: 5px;
   }
   .project-element-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: var(--main-color);
-      color: white;
-      border-radius: 5px;
-      padding: 10px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
 
-    .project-element {
-      text-align: left;
-      background-color: var(--main-color);
-      border-radius: 5px;
-      margin-bottom: 4500px;
-    }
+  .project-element {
+    text-align: left;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    margin-bottom: 4500px;
+  }
   @media only screen and (min-width: 768px) {
     .project-element {
       margin-bottom: 3600px;
     }
-    
   }
 </style>

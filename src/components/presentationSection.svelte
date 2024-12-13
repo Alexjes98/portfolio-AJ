@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="pic-container">
-        <img class="pic" src={Img} alt="Alejandro Lopez" />
+        <img class="pic" src={Img} alt="Alejandro Lopez" loading="lazy"  />
       </div>
     </div>
   </section>

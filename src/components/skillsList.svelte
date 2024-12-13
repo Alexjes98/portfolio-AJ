@@ -78,7 +78,7 @@
     <div class="row">
       {#each mainSkills as skill}
         <div class="skill-item">
-          <img src={`${skill.img}`} alt={skill.name} />
+          <img src={`${skill.img}`} alt={skill.name} loading="lazy"  />
           <h3>{skill.name}</h3>
         </div>
       {/each}
@@ -90,7 +90,7 @@
           class="skill-item
         "
         >
-          <img src={`${skill.img}`} alt={skill.name} />
+          <img src={`${skill.img}`} alt={skill.name} loading="lazy" />
           <h3>{skill.name}</h3>
         </div>
       {/each}
@@ -118,14 +118,14 @@
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: scroll()) {
       .skill-item {
-        animation: fade-in-left 2s ease;
+        animation: fade-in-left 0.5s ease;
         animation-timeline: view();
       }
     }
   }
   .skill-item {    
     width: 200px;
-    margin: 50px;
+    margin: 30px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -147,7 +147,7 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    margin-bottom: 5px;
+    margin-bottom: 35px;
     width: 100%;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
