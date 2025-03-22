@@ -4,7 +4,7 @@
   import FaMobileAlt from "svelte-icons/fa/FaMobileAlt.svelte";
   import FaCloud from "svelte-icons/fa/FaCloud.svelte";
   import FaCode from "svelte-icons/fa/FaCode.svelte";
-
+  import FaAws from "svelte-icons/fa/FaAws.svelte";  
   import SectionJump from "./common/sectionJump.svelte";
 </script>
 
@@ -12,7 +12,24 @@
   <section id="what-i-do">
     <div class="experience-container">
       <div class="title">
-        <h2>What I Do</h2>
+        <h2>I Do</h2>
+        <div class="scrolling-text">
+          <div class="scrolling-content">
+            <span>Frontend</span>
+            <span>Backend</span>
+            <span>Cloud</span>
+            <span>Mobile</span>
+            <span>IaC</span>
+            <span>Fullstack</span>
+            <!-- duplicate items for seamless scrolling -->
+            <span>Frontend</span>
+            <span>Backend</span>
+            <span>Cloud</span>
+            <span>Mobile</span>
+            <span>IaC</span>
+            <span>Fullstack</span>      
+          </div>
+        </div>
       </div>
       <div class="experience-list">
         <div class="experience-item">
@@ -22,7 +39,7 @@
           <h3>Front-End Development</h3>
           <p>
             I have experience with HTML, CSS, and JavaScript, and I have worked
-            with React, Material UI, Remix, Svelte, and Testing Libraries like
+            with React, Tailwind, Material UI, Remix, Svelte, and Testing Libraries like
             Jest and Cypress to create responsive and interactive user
             interfaces
           </p>
@@ -33,7 +50,7 @@
           </div>
           <h3>Back-End Development</h3>
           <p>
-            I have experience with Node.js, Express.js, JWT, ORMs like Sequelize
+            I have experience with Node.js, Express.js, ORMs like Sequelize
             and using dependency injection, and design patterns to create secure
             APIs for robust web applications with database services like
             MongoDB, MySQL, and Postgres
@@ -41,7 +58,7 @@
         </div>
         <div class="experience-item">
           <div class="icon">
-            <FaCloud />
+            <FaAws />
           </div>
           <h3>Cloud Development</h3>
           <p>
@@ -77,9 +94,10 @@
     text-align: center;
     margin-bottom: 50px;
   }
+
   section {
-    margin-bottom: 1000px;
-    padding: 20px;
+    margin-bottom: 200px;
+    padding-top: 100px;
     grid-column: 1 / 13;
   }
   p {
@@ -121,6 +139,7 @@
     border: 5px solid #ccc;
     border-radius: 15px;
     width: 350px;
+    margin-bottom: 60px;
   }
   @keyframes fancy-in {
     /* card entry */
@@ -148,5 +167,43 @@
       }
 
     }
+  }
+
+  .scrolling-text {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .scrolling-content {
+    display: flex;
+    position: absolute;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  .scrolling-content span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;    
+    padding: 0 20px;
+    font-weight: bold;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pause animation on hover */
+  .scrolling-text:hover .scrolling-content {
+    animation-play-state: paused;
   }
 </style>

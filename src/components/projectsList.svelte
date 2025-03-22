@@ -122,7 +122,7 @@
     font-weight: bold;
     color: white;
     text-align: center;
-    margin-bottom: 5000px;
+    margin-bottom: 200px;
     margin-top: 100px;
   }
   .project-list {
@@ -149,12 +149,12 @@
     text-align: center;
   }
   .extend-container {
-    height: 13100px;
+    height: 100px;
     width: 50px;
   }
   @media only screen and (min-width: 768px) {
     .extend-container {
-      height: 16100px;
+      height: 100px;
       width: 50px;
     }
   }

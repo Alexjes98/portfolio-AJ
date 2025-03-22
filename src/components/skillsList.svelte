@@ -112,7 +112,7 @@
   }
 
   section {
-    margin-bottom: 8000px;
+    margin-bottom: 200px;
     padding: 20px;
   }
   @media (prefers-reduced-motion: no-preference) {

@@ -171,7 +171,7 @@
     color: var(--accent-color);
   }
   .invisible-container {
-    margin-bottom: 1000px;
+    margin-bottom: 100px;
   }
   .ico {
     height: 25px;
@@ -211,11 +211,11 @@
     text-align: left;
     background-color: var(--main-color);
     border-radius: 5px;
-    margin-bottom: 4500px;
+    margin-bottom: 450px;
   }
   @media only screen and (min-width: 768px) {
     .project-element {
-      margin-bottom: 3600px;
+      margin-bottom: 360px;
     }
   }
 </style>

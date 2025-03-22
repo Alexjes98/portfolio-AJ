@@ -96,8 +96,8 @@
   }
 
   section {
-    margin-top: 70px;
-    margin-bottom: 700px;
+    margin-top: 10px;
+    margin-bottom: 200px;
     padding: 20px;
     grid-column: 1 / 13;
     justify-content: end;
@@ -107,7 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 8s ease-in-out;
+    animation: fadeIn 4s ease-in-out;
     position: relative;
   }
 
@@ -120,7 +120,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border: 1px solid #333;
     animation:
-      fadeIn 8s ease-in-out,
+      fadeIn 4s ease-in-out,
       glitch 3s infinite;
     position: relative;
     transform-origin: center;
@@ -163,6 +163,78 @@
     left: -2px;
     text-shadow: 2px 0 #00ffff;
     animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+
+  .button-container {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  button {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: button-stretch 0.5s ease-in-out;
+    transform-origin: center;
+  }
+
+  @keyframes button-stretch {
+    0% {
+      transform: scaleY(0);
+      
+    }
+    100% {
+      transform: scaleY(1);
+      
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .pic {
+      width: 30%;
+      height: 30%;
+    }
+    section {
+      grid-column: 1 / 13;      
+      padding: 40px;      
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    button:hover {
+      background-color: var(--accent-color-dark);
+    }
+
+    .button-container {
+      display: flex;
+      padding-top: 20px;
+      justify-content: start;
+      align-items: center;
+      width: 100%;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   @keyframes fadeIn {
@@ -245,73 +317,6 @@
     }
     100% {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
-  .button-container {
-    display: flex;
-    padding-top: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  button {
-    width: 100%;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 50px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    animation: button-stretch 0.5s ease-in-out;
-    transform-origin: center;
-  }
-
-  @keyframes button-stretch {
-    0% {
-      transform: scaleY(0);
-      
-    }
-    100% {
-      transform: scaleY(1);
-      
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    section {
-      grid-column: 1 / 13;
-      margin-bottom: 7000px;
-      padding: 40px;
-      background-color: var(--secondary-color);
-    }
-    button:hover {
-      background-color: var(--accent-color-dark);
-    }
-
-    .button-container {
-      display: flex;
-      padding-top: 20px;
-      justify-content: start;
-      align-items: center;
-      width: 100%;
-    }
-
-    .col {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
     }
   }
 </style>

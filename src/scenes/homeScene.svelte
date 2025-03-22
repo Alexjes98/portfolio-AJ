@@ -25,7 +25,7 @@
     new Vector3(31, 0, -30),
     new Vector3(14, 0, 60),
   ]);
-  const maxScrollY = 100000;
+  const maxScrollY = 40000;
   const points = curve.getPoints(maxScrollY);
 
   interactivity();
@@ -284,7 +284,7 @@
   </T.Mesh>
   <!-- floor -->
   <T.Mesh receiveShadow position={[0, -25, 0]}>
-    <T.BoxGeometry args={[800, 1, 800]} />
+    <T.BoxGeometry args={[150, 1, 150]} />
     <T.MeshPhysicalMaterial color="white" />
   </T.Mesh>
   <!-- walls -->

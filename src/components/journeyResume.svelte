@@ -72,7 +72,7 @@
 
 <style>
   section {
-    margin-bottom: 7000px;
+    margin-bottom: 200px;
     padding: 20px;
     grid-column: 1 / 13;
     justify-content: center;

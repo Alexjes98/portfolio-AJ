@@ -87,7 +87,7 @@
 
 <style>
   section {
-    margin-bottom: 6000px;
+    margin-bottom: 200px;
     grid-column: 1 / 13;
   }
   @keyframes fancy-in {
