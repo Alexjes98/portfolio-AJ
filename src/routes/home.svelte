@@ -38,7 +38,7 @@
 </script>
 
 <main>
-  <div id="progressBar"></div>
+  <div id="progressBar"/>
   <div class="canvas">
     <Canvas>
       <HomeScene />

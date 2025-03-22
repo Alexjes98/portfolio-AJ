@@ -8,47 +8,121 @@
       section.scrollIntoView();
     }
   }
+  let presentation = ">Hi, my name is ";
+  let presentationRef = "";
+  let name = "Alejandro Lopez";
+  let nameRef = "";
+  let presentationDelayed = ">I'm a software engineer with a passion for system design";
+  let presentationDelayedRef = "";
+
+  function typePresentation() {
+    for (let i = 0; i <= presentation.length; i++) {
+      setTimeout(() => {
+        presentationRef = presentation.slice(0, i);
+      }, 100 * i);
+    }
+    setTimeout(() => {
+      for (let i = 0; i <= name.length; i++) {
+        setTimeout(() => {
+          nameRef = name.slice(0, i);
+        }, 100 * i);
+      }
+    }, 100 * presentation.length);
+    setTimeout(() => {
+    for (let i = 0; i <= presentationDelayed.length; i++) {
+      setTimeout(() => {
+        presentationDelayedRef = presentationDelayed.slice(0, i);
+        }, 100 * i);
+      }
+    }, 100 * presentation.length + 100 * name.length);
+  }
+  typePresentation();
 </script>
 
 <main>
   <section id="presentation">
-    <div class="row">
+    
       <div class="col">
-        <h1>Hi my name is Alejandro Lopez</h1>
-        <h2>I'm a software engineer with a passion for system design</h2>
-        <div class="button-container">
-          <button on:click={scrollToSection}>Start</button>
+        <div class="presentation-container">
+          <h1>{presentationRef}<span class="name">{nameRef}</span></h1>
+          <h2>{presentationDelayedRef}</h2>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="pic-container">
+          <img class="pic" src={Img} alt="Alejandro Lopez" loading="lazy"  />
         </div>
-      </div>
-      <div class="pic-container">
-        <img class="pic" src={Img} alt="Alejandro Lopez" loading="lazy"  />
-      </div>
-    </div>
+      </div>      
   </section>
 </main>
 
 <style>
+  .name {
+    color: #ff7b00;    
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 81, 0, 0.952);
+  }
+  .presentation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e;
+    margin-top: 50px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    width: 100%;    
+  }
+
+  .presentation-container h1, .presentation-container h2 {
+    font-family: 'Courier New', monospace;
+    color: #00b7ff;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 5px rgb(0, 255, 255);
+  }
+  .presentation-container h2 {
+    color: #00ccff;
+  }
+
+  .presentation-container h2::before {
+    color: #00ccff;
+  }
+
   section {
-    margin-top: 60px;
+    margin-top: 70px;
     margin-bottom: 700px;
     padding: 20px;
     grid-column: 1 / 13;
     justify-content: end;
     align-items: center;    
   }
-
-  .pic {
-    width: 80%;
-    height: auto;
-  }
-
   .pic-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    animation: fadeIn 8s ease-in-out;
   }
 
+  .pic {
+    margin-top: 100px;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;      
+    }
+    to {
+      opacity: 0.5;      
+    }
+  }
   button {
     width: 100%;
     background-color: var(--accent-color);
@@ -66,12 +140,7 @@
       margin-bottom: 7000px;
       padding: 40px;
       background-color: var(--secondary-color);
-    }
-    .pic {
-      width: 50%;
-      height: auto;
-      padding: 20px;
-    }
+    }   
     button:hover {
       background-color: var(--accent-color-dark);
     }
@@ -94,7 +163,7 @@
     .row {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
     }
   }
