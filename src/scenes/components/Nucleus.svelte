@@ -1,7 +1,7 @@
 <script>
   import { T, useTask } from "@threlte/core";
 
-  const position = [1, 2, -36];
+  const position = [-2, 0, -1];
 
   let speed = 0;
   useTask((delta) => {
@@ -45,11 +45,11 @@
   </T.Mesh>
   <T.Mesh
     receiveShadow
-    position={[position[0], -51, position[2]]}
+    position={[position[0], -31.5, position[2]]}
     rotation={[0, Math.PI - 2 / 2, 0]}
   >
-    <T.BoxGeometry args={[10, 100, 10]} />
-    <T.MeshStandardMaterial color="white" />
+    <T.BoxGeometry args={[5, 60, 5]} />
+    <T.MeshStandardMaterial color="black" />
   </T.Mesh>
   <T.Mesh
     position={[

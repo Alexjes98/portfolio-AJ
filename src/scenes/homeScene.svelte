@@ -2,7 +2,7 @@
   import Model from "../../gear.svelte";
 
   import { T, useTask, useThrelte } from "@threlte/core";
-  import { OrbitControls, interactivity } from "@threlte/extras";
+  import { OrbitControls, interactivity, Grid } from "@threlte/extras";
   import { Vector3, CatmullRomCurve3, Color } from "three";
 
   import { Suspense, Text } from "@threlte/extras";
@@ -25,7 +25,7 @@
     new Vector3(31, 0, -30),
     new Vector3(14, 0, 60),
   ]);
-  const maxScrollY = 40000;
+  const maxScrollY = 30000;
   const points = curve.getPoints(maxScrollY);
 
   interactivity();
@@ -74,6 +74,19 @@
     {rotation}
     intensity={mainLightIntensity}
     color={"purple"}
+  />
+  <Grid>
+    
+  </Grid>
+  <Grid
+    type="grid"
+    position={[0, -10, 0]}
+    center={[0, 0, 0]}
+    cellColor={"blue"}
+    fadeStrength={0}
+    size={1}
+    subdivisions={100}    
+    rotation={[0, Math.PI / 2,0]}
   />
   <T.PointLight
     position={[0, -23, 0]}
@@ -185,12 +198,6 @@
     color="black"
     geometry={[2, 12, 2]}
     lights={[{ position: [1, 2, 1], intensity: 5 }]}
-  />
-  <Box
-    position={[-32, -3, -20]}
-    color="black"
-    geometry={[2, 2, 5]}
-    lights={[{ position: [1, 2, 1], intensity: 15 }]}
   />
   <Box
     position={[-32, -9, 32]}
@@ -369,35 +376,3 @@
   <Nucleus isMobile={isMobile} />
   <FloorGrid />
 </Suspense>
-
-<!-- Home Page
- //A brief introduction about yourself
-A headshot or logo
-//A tagline that summarizes your expertise
-//About Page
-//Your professional background
-//Your skills and areas of expertise
-Personal interests or hobbies that relate to your profession
-Portfolio/Gallery
-High-quality images or screenshots of your work
-Descriptions of each project, including your role and the tools used
-Case studies or success stories
-Resume/CV
-A downloadable PDF of your resume
-A detailed list of your work experience, education, and certifications
-Services Page (if applicable)
-The services you offer
-Pricing or rate information
-Testimonials from clients or colleagues
-Blog/Articles
-Original articles or blog posts related to your field
-Tutorials or how-to guides
-Industry insights or commentary
-Contact Information
-An email address or contact form
-Links to your professional social media profiles
-A call-to-action encouraging visitors to get in touch
-Extras
-Press mentions or awards
-A calendar of events or workshops
-A portfolio of personal projects or hobbies -->

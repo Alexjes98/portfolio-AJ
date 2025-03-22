@@ -20,7 +20,7 @@
     for (let i = 0; i <= presentation.length; i++) {
       setTimeout(() => {
         presentationRef = presentation.slice(0, i);
-      }, 80 * i);
+      }, 70 * i);
     }
     setTimeout(() => {
       for (let i = 0; i <= name.length; i++) {
@@ -229,12 +229,6 @@
       align-items: start;
     }
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
   }
 
   @keyframes fadeIn {
