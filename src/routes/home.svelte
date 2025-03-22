@@ -11,21 +11,30 @@
   import ProjectsList from "../components/projectsList.svelte";
   import Contact from "../components/contact.svelte";
 
-  window.onscroll = function () {
-    var docHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    var scrollPosition =
-      window.screenY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-    var scrollPercentage = (scrollPosition / docHeight) * 100;
+  function debounce(func: Function, wait: number) {
+    let timeout: number | null = null;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        timeout = null;
+        func(...args);
+      };
+      if (timeout) clearTimeout(timeout);
+      timeout = window.setTimeout(later, wait);
+    };
+  }
 
-    var element = document.getElementById("progressBar") || document.createElement("div");
+  const updateProgressBar = debounce(() => {
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPosition = window.screenY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollPercentage = (scrollPosition / docHeight) * 100;
 
-    element.style.width = scrollPercentage + "%";
-  };
+    const element = document.getElementById("progressBar");
+    if (element) {
+      element.style.width = scrollPercentage + "%";
+    }
+  }, 16); // Debounce at ~60fps
+
+  window.onscroll = updateProgressBar;
 </script>
 
 <main>

@@ -39,6 +39,7 @@
 
   let scrollY = 0;
   let isMobile = window.innerWidth < 768;
+  let isLowEndDevice = window.innerWidth < 480 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   $: {
     scrollY = Math.floor(scrollY);
@@ -60,12 +61,14 @@
       }
     }
   }
-  const mainLightIntensity = isMobile ? 700 : 1000;
+  const mainLightIntensity = isMobile ? 500 : (isLowEndDevice ? 700 : 1000);
+  const geometrySegments = isLowEndDevice ? 8 : (isMobile ? 12 : 15);
 </script>
 
 <svelte:window bind:scrollY />
 
 <Suspense final>
+  {#if !isLowEndDevice}
   <T.PointLight
     position={[0, -22, -30]}
     {rotation}
@@ -84,6 +87,7 @@
     intensity={mainLightIntensity}
     color={"blue"}
   />
+  {/if}
   <T.PerspectiveCamera
     makeDefault
     position={cameraPosition}
@@ -123,10 +127,12 @@
     position={[0, -0.5, -1]}
     rotation={[Math.PI / 2, -rotation, 0]}
   >
-    <T.CylinderGeometry args={[0.09,0.09, 1, 12]} />
+    <T.CylinderGeometry args={[0.09, 0.09, 1, geometrySegments]} />
     <T.MeshStandardMaterial color="black" />
   </T.Mesh>
+  {#if !isLowEndDevice}
   <Model position={[0, -0.5, -1]} rotation={[Math.PI / 2, -rotation, 0]} />
+  {/if}
   <T.Mesh
     receiveShadow
     position={[0.7, -0.5, -1]}
@@ -139,11 +145,11 @@
 
   {#if !isMobile}
   <T.Mesh receiveShadow position={[0, 0 + 4 * Math.sin(rotation) - 10, 10]}>
-    <T.CylinderGeometry args={[2, 2, 10, 15]} />
+    <T.CylinderGeometry args={[2, 2, 10, geometrySegments]} />
     <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <T.Mesh receiveShadow position={[-3, 0 + 4 * Math.cos(rotation) - 10, 10]}>
-    <T.CylinderGeometry args={[2, 2, 10, 15]} />
+    <T.CylinderGeometry args={[2, 2, 10, geometrySegments]} />
     <T.MeshStandardMaterial color="darkblue" />
   </T.Mesh>
   <T.Mesh receiveShadow position={[-1, 0 + Math.cos(rotation), -1]}>
