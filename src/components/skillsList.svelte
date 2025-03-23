@@ -55,7 +55,7 @@
     },
     {
       name: "Cypress",
-      img: "https://www.cypress.io/_astro/navbar-brand.D87396b0.svg",
+      img: "https://cdn.worldvectorlogo.com/logos/cypress-1.svg",
     },
     {
       name: "Svelte",
@@ -102,8 +102,8 @@
 <style>
   @keyframes fade-in-left {
     0% {
-      opacity: 0;
-      transform: translateX(-600px);
+      opacity: 0.4;
+      transform: translateX(-100px);
     }
     100% {
       opacity: 1;
@@ -129,7 +129,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
     background-color: var(--main-color);
     border-radius: 10px;
   }
@@ -140,7 +140,15 @@
   .row {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    padding: 0 20px;
+  }
+  @media (max-width: 768px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
   }
   h2 {
     font-size: 2em;
