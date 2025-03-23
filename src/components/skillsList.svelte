@@ -1,74 +1,104 @@
-<script>
+<script lang="ts">
   import SectionJump from "./common/sectionJump.svelte";
+  import Azure from "./skills-logos/azure.svelte";
+  import React from "./skills-logos/react_light.svelte";
+  import Express from "./skills-logos/expressjs.svelte";
+  import Node from "./skills-logos/nodejs.svelte";
+  import JavaScript from "./skills-logos/javascript.svelte";
+  import HTML from "./skills-logos/html5.svelte";
+  import CSS from "./skills-logos/css.svelte";
+  import AWS from "./skills-logos/aws.svelte";
+  import PostgreSQL from "./skills-logos/postgresql.svelte";
+  import Flutter from "./skills-logos/flutter.svelte";
+  import Firebase from "./skills-logos/firebase.svelte";
+  import Python from "./skills-logos/python.svelte";
+  import Cypress from "./skills-logos/cypress.svelte";
+  import Svelte from "./skills-logos/svelte.svelte";
+  import Docker from "./skills-logos/docker.svelte";
+  import MongoDB from "./skills-logos/mongodb.svelte";
+  import ThreeJS from "./skills-logos/threejs.svelte";
+  import TypeScript from "./skills-logos/typescript.svelte";
+  interface Skill {
+    name: string;
+    component: any;
+  }
 
-  let mainSkills = [
+  let mainSkills: Skill[] = [
     {
       name: "React",
-      img: "/reactskill.png",
+      component: React,
     },
     {
       name: "Express",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
-    },
-    {
-      name: "Node",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
-    },
-    {
-      name: "JavaScript",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
-    },
-    {
-      name: "HTML",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
-    },
-    {
-      name: "CSS",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+      component: Express,
     },
     {
       name: "AWS",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      component: AWS,
     },
     {
+      name: "Node",
+      component: Node,
+    },
+    {
+      name: "JavaScript",
+      component: JavaScript
+    },
+    {
+      name: "HTML",
+      component: HTML,
+    },
+    {
+      name: "CSS",
+      component: CSS,
+    },    
+    {
       name: "PostgreSQL",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
+      component: PostgreSQL,
     },
     {
       name: "Flutter",
-      img: "/flutter.png",
+      component: Flutter,
     },
     {
       name: "Firebase",
-      img: "/firebase.png",
-    },
+      component: Firebase,
+    }
   ];
 
-  let secondarySkills = [
+  let secondarySkills: Skill[] = [
+    {
+      name: "TypeScript",
+      component: TypeScript
+    },
+    {
+      name: "ThreeJS",
+      component: ThreeJS
+    },
     {
       name: "Python",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg",
+      component: Python
     },
     {
       name: "Azure",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original-wordmark.svg",
+      component: Azure
     },
     {
       name: "Cypress",
-      img: "https://cdn.worldvectorlogo.com/logos/cypress-1.svg",
+      component: Cypress
     },
     {
       name: "Svelte",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/svelte/svelte-original-wordmark.svg",
+      component: Svelte
     },
     {
       name: "Docker",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+      component: Docker
     },
     {
       name: "MongoDB",
-      img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
-    },
+      component: MongoDB
+    }
   ];
 </script>
 
@@ -78,7 +108,7 @@
     <div class="row">
       {#each mainSkills as skill}
         <div class="skill-item">
-          <img src={`${skill.img}`} alt={skill.name} loading="lazy"  />
+          <svelte:component this={skill.component}/>
           <h3>{skill.name}</h3>
         </div>
       {/each}
@@ -86,11 +116,8 @@
     <h2>I also know about</h2>
     <div class="row">
       {#each secondarySkills as skill}
-        <div
-          class="skill-item
-        "
-        >
-          <img src={`${skill.img}`} alt={skill.name} loading="lazy" />
+        <div class="skill-item">          
+          <svelte:component this={skill.component}/>
           <h3>{skill.name}</h3>
         </div>
       {/each}
@@ -123,19 +150,15 @@
       }
     }
   }
-  .skill-item {    
+  .skill-item {
     width: 200px;
     margin: 30px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     background-color: var(--main-color);
     border-radius: 10px;
-  }
-  img {
-    width: 100px;
-    height: 100px;
   }
   .row {
     width: 100%;
@@ -147,7 +170,7 @@
   }
   @media (max-width: 768px) {
     .row {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
   }
   h2 {
