@@ -161,9 +161,9 @@
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: scroll()) {
       .experience-item {
-        animation: fancy-in 1s both;
+        /*animation: fancy-in 1s both;
         animation-timeline: view();
-        animation-range: contain;
+        animation-range: contain;*/
       }
 
     }

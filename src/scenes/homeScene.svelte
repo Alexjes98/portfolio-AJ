@@ -72,27 +72,25 @@
 <svelte:window bind:scrollY />
 
 <Suspense final>
-  {#if !isMobile}
-    <!-- Lights -->
-    <T.PointLight
-      position={[0, -22, -30]}
-      {rotation}
-      intensity={mainLightIntensity}
-      color={"purple"}
-    />
-    <T.PointLight
-      position={[0, -23, 0]}
-      {rotation}
-      intensity={mainLightIntensity}
-      color={"purple"}
-    />
-    <T.PointLight
-      position={[-40, -23, -40]}
-      {rotation}
-      intensity={mainLightIntensity}
-      color={"blue"}
-    />
-  {/if}
+  <!-- Lights -->
+  <T.PointLight
+    position={[0, -22, -30]}
+    {rotation}
+    intensity={mainLightIntensity}
+    color={"purple"}
+  />
+  <T.PointLight
+    position={[0, -23, 0]}
+    {rotation}
+    intensity={mainLightIntensity}
+    color={"purple"}
+  />
+  <T.PointLight
+    position={[-40, -23, -40]}
+    {rotation}
+    intensity={mainLightIntensity}
+    color={"blue"}
+  />
   <!-- Grids -->
   <Grid
     type="grid"
@@ -230,8 +228,7 @@
   />
 
   {#if !isMobile}
-    <!--
-  <Box
+    <Box
       position={[22, -4, -3.9]}
       color="black"
       geometry={[0.2, 6, 6]}
@@ -249,7 +246,6 @@
       geometry={[0.2, 11, 19]}
       lights={[{ position: [3, 4.5, 7], intensity: 2 }]}
     />
-    -->
   {/if}
   {#if !isMobile}
     <Gear
@@ -288,7 +284,7 @@
     isActive={true}
     rotationSpeed={0.5}
   />
-  <!-- <T.PointLight position={[10, 5,10 ]} intensity={25} color="purple" /> -->
+  <T.PointLight position={[10, 5,10 ]} intensity={25} color="purple" />
   <Gear
     position={[-10, 12, 4]}
     rotation={[0, 0, Math.PI / 2]}
