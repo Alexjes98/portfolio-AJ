@@ -67,6 +67,29 @@ p {
   padding: 2em;
 }
 
+.console-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+  margin-top: 50px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  width: 100%;
+}
+
+.console-container h1,
+.console-container h4,
+.console-container h2 {
+  font-family: "Courier New", monospace;
+  color: #00b7ff;
+  margin: 0.5rem 0;
+  text-shadow: 0 0 5px rgb(0, 255, 255);
+}
+
 #app {
   width: 100vw;
   z-index: 99;

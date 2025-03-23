@@ -1,4 +1,6 @@
 <script>
+  // @ts-nocheck
+  import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
   let show = false;
 </script>
 
@@ -12,7 +14,7 @@
           href="https://github.com/Alexjes98/"
           class="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img src="/logo.png" class="h-14" alt="Logo" />          
+          <FaGithub />
         </a>
         <button
           on:click={() => (show = !show)}
@@ -115,7 +117,8 @@
   }
 
   nav a {
-    color: #f2f2f2;
+    color: #f2f2f2;    
+    height: 2rem;
   }
 
   nav a:hover {

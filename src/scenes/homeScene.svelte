@@ -69,25 +69,49 @@
 
 <Suspense final>
   {#if !isLowEndDevice}
-  <T.PointLight
-    position={[0, -22, -30]}
-    {rotation}
-    intensity={mainLightIntensity}
-    color={"purple"}
-  />
-  <Grid>
-    
-  </Grid>
+  
+  <!-- Grids -->
   <Grid
     type="grid"
-    position={[0, -10, 0]}
-    center={[0, 0, 0]}
+    position={[-8, 0, -10]}    
+    cellColor={"violet"}
+    fadeStrength={0}       
+    rotation={[0, Math.PI / 2, Math.PI / 2]}
+  />
+  <Grid
+    type="grid"
+    position={[5, 0, 15]}    
+    cellColor={"violet"}
+    fadeStrength={0}       
+    rotation={[0, Math.PI / 2, Math.PI / 2]}
+  />
+  <Grid
+    type="grid"
+    position={[-15, 10, 5]}    
+    cellColor={"black"}   
+    rotation={[ Math.PI / 2, 0,  Math.PI / 2]}
+  />
+  <Grid
+    type="grid"
+    position={[15, 0, 0]}    
+    cellColor={"blue"}   
+    rotation={[ Math.PI / 2, 0,  Math.PI / 2]}
+  />
+  <Grid
+    type="grid"
+    position={[0, -10, 0]}    
     cellColor={"blue"}
     fadeStrength={0}
-    size={1}
-    subdivisions={100}    
+    size={1}    
     rotation={[0, Math.PI / 2,0]}
   />
+  <!-- Lights -->
+  <T.PointLight
+  position={[0, -22, -30]}
+  {rotation}
+  intensity={mainLightIntensity}
+  color={"purple"}
+/>
   <T.PointLight
     position={[0, -23, 0]}
     {rotation}
@@ -299,80 +323,6 @@
     <T.BoxGeometry args={[10, 400, 600]} />
     <T.MeshStandardMaterial color="white" />
   </T.Mesh>
-
-  <!-- <ProjectItem
-  position={[58, 0, -10]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[20, 11.5, 1]}
-  url="clew.png"
-  items={[
-    { url: "azure.png" },
-    { url: "react.png" },
-    { url: "python.jpg" },
-    { url: "function.png" },
-    { url: "search.png" },
-    { url: "openai.png" },
-    { url: "cosmosdb.jpg" },
-  ]}
-/>
-
-<ProjectItem
-  position={[80, 0, 12]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[20, 11.5, 1]}
-  url="skynet.png"
-  items={[
-    { url: "react.png" },
-    { url: "amplify.jpeg" },
-    { url: "cy.jpeg" },
-    { url: "nodejs.png" },
-    { url: "postgres.png" },
-    { url: "cognito.png" },
-    { url: "s3.jpeg" },
-  ]}
-/>
-
-<ProjectItem
-  position={[100, -15, -20]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[20, 11.5, 1]}
-  url="stipe.png"
-  items={[
-    { url: "react.png" },
-    { url: "ec2.jpeg" },
-    { url: "nodejs.png" },
-    { url: "amplify.jpeg" },
-  ]}
-/>
-
-<ProjectItem
-  position={[130, 0, 0]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[23, 11.3, 1]}
-  url="littlebellies.png"
-  items={[
-    { url: "react.png" },
-    { url: "cy.jpeg" },
-    { url: "lambda.png" },
-    { url: "dinamo.png" },
-  ]}
-/>
-
-<ProjectItem
-  position={[165, 0, -20]}
-  rotation={[0, Math.PI - 3 / 2, 0]}
-  geometry={[23, 11.5, 1]}
-  url="progressive.png"
-  items={[
-    { url: "remix.jpg", zoom: 0.7 },
-    { url: "beanstalk.jpeg" },
-    { url: "cy.jpeg" },
-    { url: "nodejs.png" },
-    { url: "postgres.png" },
-    { url: "cognito.png" },
-    { url: "s3.jpeg" },
-  ]}
-/> -->
   <Nucleus isMobile={isMobile} />
   <FloorGrid />
 </Suspense>

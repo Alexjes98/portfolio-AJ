@@ -1,6 +1,5 @@
 <script>
   // @ts-nocheck
-
   import AboutImg from "../assets/about_img.png";
   import AIPractitoner from "../assets/aws-certified-ai-practitioner.png";
   import CloudPractitoner from "../assets/aws-certified-cloud-practitioner.png";
@@ -8,10 +7,41 @@
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import FaLinkedin from "svelte-icons/fa/FaLinkedin.svelte";
   import FaInstagram from "svelte-icons/fa/FaInstagram.svelte";
-
   import FaStar from "svelte-icons/fa/FaStar.svelte";
+  
   import SectionJump from "./common/sectionJump.svelte";
+
+  let scrollY = 0;
+  let isStarted = false;
+  
+  const title = "Code Architect, Problem Solver";
+  let titleRef = "";
+  const description = "I am a software engineer graduated from the National Experimental University of Táchira. (UNET) I have worked in the development of web applications, mobile applications, and cloud services since my lasts years in college.";
+  let descriptionRef = "";  
+
+  function typePresentation() {
+    for (let i = 0; i <= title.length; i++) {
+      setTimeout(() => {
+        titleRef = title.slice(0, i);
+      }, 50 * i);
+    }
+    setTimeout(() => {
+      for (let i = 0; i <= description.length; i++) {
+        setTimeout(() => {
+          descriptionRef = description.slice(0, i);
+        }, 20 * i);
+      }
+    }, 100 * title.length);    
+  }
+  $: {    
+    if (scrollY > 8000 && !isStarted) {
+      isStarted = true;
+      typePresentation();
+    }
+  }
 </script>
+
+<svelte:window bind:scrollY />
 
 <main>
   <section id="about-me">
@@ -26,13 +56,10 @@
           <img src={AboutImg} alt="profile" aria-label="profile" loading="lazy" />
         </div>
         <div class="col">
-          <h1>Code Architect, Problem Solver</h1>
-          <h4>
-            I am a software engineer graduated from the National Experimental
-            University of Táchira. (UNET) I have worked in the development of
-            web applications, mobile applications, and cloud services since my
-            lasts years in college.
-          </h4>
+          <div class="console-container">
+            <h1>{titleRef}</h1>
+            <p>{descriptionRef}</p>
+          </div>          
           <div class="icons-row">
             <div class="icon">
               <a href="https://github.com/Alexjes98" target="_blank">
@@ -88,6 +115,7 @@
 <style>
   section {
     margin-bottom: 200px;
+    padding-top: 100px;
     grid-column: 1 / 13;
   }
   @keyframes fancy-in {
@@ -149,7 +177,18 @@
     align-items: center;
     justify-content: center;
   }
+  .console-container h1,
+  .console-container p {
+    font-family: "Courier New", monospace;
+    color: #00b7ff;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 5px rgb(0, 225, 255);
+  }
 
+  .console-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
   .decoration-icon {
     position: absolute;
     z-index: 0;
@@ -173,19 +212,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-  }
-  button {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
-    border: none;
-    width: 100%;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: var(--accent-color-dark);
-  }
+  } 
   a {
     text-decoration: none;
     color: white;
@@ -200,11 +227,6 @@
     margin-bottom: 70px;
     margin-right: 20px;
   }
-  .download-container {
-    align-self: flex-end;
-    width: 100%;
-    height: 54px;
-  }
 
   .row {
     align-items: center;
@@ -215,18 +237,17 @@
 
   .avatar {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     align-items: center;
-    background-color: var(--background-color);
+    background-color: var(--main-color);
     width: 250px;
     height: 250px;
-    border-radius: 500px;
+    border-radius: 50px;
     overflow: hidden;
   }
   img {
     width: 100%;
     height: auto;
-    padding: 20px;
   }
   h2 {
     font-size: 2em;
@@ -243,6 +264,8 @@
     flex: 2;
     margin-inline: 20px;
   }
+
+  
   .about-container {
     position: relative;
     padding-top: 1px;
@@ -252,7 +275,6 @@
     background-color: var(--secondary-color);
   }
   h2,
-  h4,
   h1 {
     color: var(--background-color);
   }

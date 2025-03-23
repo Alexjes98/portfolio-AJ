@@ -13,7 +13,7 @@
   let name = "Alejandro Lopez";
   let nameRef = "";
   let presentationDelayed =
-    ">I'm a software engineer with a passion for system design";
+    ">I'm a software engineer with a passion for system design...";
   let presentationDelayedRef = "";
 
   function typePresentation() {
@@ -34,7 +34,7 @@
         for (let i = 0; i <= presentationDelayed.length; i++) {
           setTimeout(() => {
             presentationDelayedRef = presentationDelayed.slice(0, i);
-          }, 50 * i);
+          }, 40 * i);
         }
       },
       100 * presentation.length + 100 * name.length
@@ -46,7 +46,7 @@
 <main>
   <section id="presentation">
     <div class="col">
-      <div class="presentation-container">
+      <div class="console-container">
         <h1>{presentationRef}<span class="name">{nameRef}</span></h1>
         <h2>{presentationDelayedRef}</h2>
       </div>
@@ -66,32 +66,18 @@
     font-weight: bold;
     text-shadow: 0 0 5px rgba(255, 81, 0, 0.952);
   }
-  .presentation-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #1e1e1e;
-    margin-top: 50px;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border: 1px solid #333;
-    width: 100%;
-  }
-
-  .presentation-container h1,
-  .presentation-container h2 {
+  .console-container h1,
+  .console-container h2 {
     font-family: "Courier New", monospace;
     color: #00b7ff;
     margin: 0.5rem 0;
     text-shadow: 0 0 5px rgb(0, 255, 255);
   }
-  .presentation-container h2 {
+  .console-container h2 {
     color: #00ccff;
   }
 
-  .presentation-container h2::before {
+  .console-container h2::before {
     color: #00ccff;
   }
 
