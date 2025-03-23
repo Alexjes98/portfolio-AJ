@@ -16,6 +16,8 @@
     ">I'm a software engineer with a passion for system design...";
   let presentationDelayedRef = "";
 
+  let isStarted = false;
+
   function typePresentation() {
     for (let i = 0; i <= presentation.length; i++) {
       setTimeout(() => {
@@ -40,7 +42,10 @@
       100 * presentation.length + 100 * name.length
     );
   }
-  typePresentation();
+  $: if (!isStarted) {
+    typePresentation();
+    isStarted = true;
+  }
 </script>
 
 <main>
