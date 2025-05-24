@@ -1,8 +1,9 @@
 <script>
   // @ts-nocheck
   import AboutImg from "../assets/about_img.png";
-  import AIPractitoner from "../assets/aws-certified-ai-practitioner.png";
-  import CloudPractitoner from "../assets/aws-certified-cloud-practitioner.png";
+  import AIPractitoner from "../assets/aws-certified-ai-practitioner.webp";
+  import CloudPractitoner from "../assets/aws-certified-cloud-practitioner.webp";
+  import CloudDeveloper from "../assets/aws-certified-developer-associate.webp";
 
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import FaLinkedin from "svelte-icons/fa/FaLinkedin.svelte";
@@ -106,6 +107,10 @@
       <div class="certification">
         <img src={AIPractitoner} alt="AI Practitoner" />
         <h2>Issued by AWS on 2024</h2>
+      </div>
+      <div class="certification">
+        <img src={CloudDeveloper} alt="Cloud Developer" />
+        <h2>Issued by AWS on 2025</h2>
       </div>
     </div>
     <SectionJump href="#journey-resume" />

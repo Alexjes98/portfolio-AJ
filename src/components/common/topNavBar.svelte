@@ -1,6 +1,10 @@
 <script>
   // @ts-nocheck
   import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
+  import awsDeveloper from '../../assets/aws-certified-developer-associate.webp'
+  import awsPractitioner from '../../assets/aws-certified-cloud-practitioner.webp'
+  import awsAI from '../../assets/aws-certified-ai-practitioner.webp'
+  
   let show = false;
 </script>
 
@@ -10,12 +14,19 @@
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
-        <a
-          href="https://github.com/Alexjes98/"
-          class="flex items-center space-x-3 rtl:space-x-reverse"
-        >
-          <FaGithub />
-        </a>
+        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+          <a
+            href="https://github.com/Alexjes98/"
+            class="flex items-center"
+          >
+            <FaGithub />
+          </a>
+          <div class="flex items-center space-x-2">
+            <img src={awsDeveloper} alt="AWS Certified Developer Associate" class="h-10 w-auto" />
+            <img src={awsPractitioner} alt="AWS Certified Cloud Practitioner" class="h-10 w-auto" />
+            <img src={awsAI} alt="AWS Certified AI Practitioner" class="h-10 w-auto" />
+          </div>
+        </div>
         <button
           on:click={() => (show = !show)}
           data-collapse-toggle="navbar-default"
